@@ -36,6 +36,6 @@ public class RevolverGun : GunBase
     
     void Update()
     {
-        
+        ShootButton();
     }
 }

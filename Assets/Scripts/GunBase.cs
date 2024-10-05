@@ -19,7 +19,8 @@ namespace SolarStudios
         public enum FireType
         {
             Prefab,
-            Raycast
+            Raycast,
+            DOOM
         }
 
 
@@ -41,7 +42,7 @@ namespace SolarStudios
         public int maxAmmo;
         public float damage;
         public float fireRate;
-        public float nextFireTime;
+        private float nextFireTime;
         public GameObject firePoint;
         [Tooltip("Only necessary for Raycast firing.")]
         public float raycastRange;
@@ -53,9 +54,14 @@ namespace SolarStudios
         public GameObject bulletPrefab;
         private bool doUsePool = false;
 
+        [Header("Doom Specific Shooting")]
+        public float shootRange = 100f;         
+        public LayerMask enemyLayer; 
+        public Camera playerCamera; 
 
         private void Start()
         {
+            currentAmmo = maxAmmo;
             anim = GetComponent<Animator>();
             AudioSource[] audioSources = GetComponents<AudioSource>(); //Not a mega fan of this but ig it works.
             if (audioSources.Length >= 2)
@@ -75,13 +81,20 @@ namespace SolarStudios
 
         public void ShootButton()
         {
+            if(Input.GetKeyDown(shootKey) && Time.time >= nextFireTime && currentAmmo != 0)
+            {
             if (fireType == FireType.Prefab)
             {
                 ShootPrefab();
             }
-            if (fireType == FireType.Raycast)
+            else if (fireType == FireType.Raycast)
             {
                 ShootRaycast();
+            }
+            else if (fireType == FireType.DOOM)
+            {
+                ShootDoom();
+            }
             }
         }
 
@@ -102,22 +115,22 @@ namespace SolarStudios
 
         public void ShootPrefab()
         {
-            if (fireMode == FireMode.SingleFire && Input.GetKeyDown(shootKey) && Time.time >= nextFireTime && currentAmmo != 0 && fireMode == 0)
+            if (fireMode == FireMode.SingleFire )
             {
                 nextFireTime = Time.time + fireRate;
                 OnShoot();
                 gunFire.Play();
                 currentAmmo--;
-                pool.Spawn(firePoint.transform.position, Quaternion.identity);
+                SpawnMethod(firePoint.transform);
             }
 
-            if (fireMode == FireMode.RapidFire && Input.GetKey(shootKey) && Time.time >= nextFireTime && currentAmmo != 0)
+            if (fireMode == FireMode.RapidFire)
             {
                 nextFireTime = Time.time + fireRate;
                 OnShoot();
                 gunFire.Play();
                 currentAmmo--;
-                
+                SpawnMethod(firePoint.transform);
             }
         }
 
@@ -148,6 +161,37 @@ namespace SolarStudios
             else
             {
                 Instantiate(bulletPrefab, trans.position, rotation);
+            }
+        }
+        void ShootDoom()
+        {
+            Plane[] planes = GeometryUtility.CalculateFrustumPlanes(playerCamera);
+
+        
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            GameObject closestEnemy = null;
+            float closestDistance = Mathf.Infinity;
+
+            foreach (GameObject enemy in enemies)
+            {
+                if (GeometryUtility.TestPlanesAABB(planes, enemy.GetComponent<Collider>().bounds))
+                {
+                    float distance = Vector3.Distance(transform.position, enemy.transform.position);
+                    if (distance < closestDistance && distance <= shootRange)
+                    {
+                        closestDistance = distance;
+                        closestEnemy = enemy;
+                    }
+                }
+            }
+        
+            if (closestEnemy != null)
+            {
+                Debug.Log("Shooting " + closestEnemy.name);
+            }
+            else
+            {
+                Debug.Log("No enemy in range");
             }
         }
     }
