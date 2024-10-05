@@ -866,7 +866,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3458063826378017119, guid: 9921efa450512a340825b2ad17a9c260,
         type: 3}
-      propertyPath: pool
+      propertyPath: shootRange
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3458063826378017119, guid: 9921efa450512a340825b2ad17a9c260,
+        type: 3}
+      propertyPath: playerCamera
       value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []

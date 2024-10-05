@@ -375,11 +375,11 @@ MonoBehaviour:
   bulletPrefab: {fileID: 6869537744713930359, guid: 53209a5550f8def4290110435a83798f,
     type: 3}
   doUsePool: 0
-  shootRange: 100
+  shootRange: 0
   enemyLayer:
     serializedVersion: 2
     m_Bits: 0
-  playerCamera: {fileID: 8475134257880125761}
+  playerCamera: {fileID: 0}
   OnShootEvent:
     m_PersistentCalls:
       m_Calls: []
