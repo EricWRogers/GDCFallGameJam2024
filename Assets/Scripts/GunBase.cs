@@ -27,7 +27,7 @@ namespace SolarStudios
 
         public AudioSource gunFire;
         public AudioSource reload;
-        [HideInInspector]
+        
         public Animator anim;
       
         
@@ -63,6 +63,7 @@ namespace SolarStudios
 
         private void Start()
         {
+            anim = GetComponent<Animator>();
             currentAmmo = maxAmmo;
             anim = GetComponent<Animator>();
             
@@ -74,7 +75,7 @@ namespace SolarStudios
 
         public bool ShootButton()
         {
-            if(Input.GetKeyDown(shootKey) && Time.time >= nextFireTime && currentAmmo != 0)
+            if (Input.GetKeyDown(shootKey) && Time.time >= nextFireTime && currentAmmo != 0 && !CheckAnim("Reload"))
             {
                 if (fireType == FireType.Prefab)
                 {
@@ -117,6 +118,7 @@ namespace SolarStudios
         {
             OnReload();
             reload.Play();
+            anim.Play("Reload");
             currentAmmo = maxAmmo;
         }
 
@@ -126,6 +128,7 @@ namespace SolarStudios
             {
                 nextFireTime = Time.time + fireRate;
                 OnShoot();
+                anim.Play("GunShoot");
                 gunFire.Play();
                 currentAmmo--;
                 SpawnMethod(firePoint.transform, transform.localRotation);
@@ -135,6 +138,7 @@ namespace SolarStudios
             {
                 nextFireTime = Time.time + fireRate;
                 OnShoot();
+                anim.Play("GunShoot");
                 gunFire.Play();
                 currentAmmo--;
                 SpawnMethod(firePoint.transform, transform.localRotation);
@@ -153,6 +157,7 @@ namespace SolarStudios
                 {
                     nextFireTime = Time.time + fireRate;
                     OnRayHit();
+                    OnShoot();
                     gunFire.Play();
                     currentAmmo--;
                 }
@@ -173,6 +178,7 @@ namespace SolarStudios
         }
         void ShootFrustum()
         {
+            OnShoot();
             Plane[] planes = GeometryUtility.CalculateFrustumPlanes(playerCamera);
 
         
@@ -200,6 +206,18 @@ namespace SolarStudios
             else
             {
                 Debug.Log("No enemy in range");
+            }
+        }
+
+        public bool CheckAnim(string name)
+        {
+            if(anim.GetCurrentAnimatorStateInfo(0).IsName(name))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }

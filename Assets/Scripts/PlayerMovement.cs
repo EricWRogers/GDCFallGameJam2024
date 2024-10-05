@@ -16,12 +16,15 @@ public class PlayerMovement : MonoBehaviour
 
     private Camera cam;
     private Vector3 move;
+
+    private Animator anim;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         cam = GetComponentInChildren<Camera>();
 
         Cursor.lockState = CursorLockMode.Locked;
+        anim = GetComponent<Animator>();
     }
 
     
@@ -43,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
+
         float currentSpeed;
         if (Input.GetKey(KeyCode.LeftShift))
         {
@@ -64,6 +68,10 @@ public class PlayerMovement : MonoBehaviour
         if (rb.velocity.magnitude > maxSpeed)
         {
             rb.velocity = rb.velocity.normalized * maxSpeed;
+        }
+        if (rb.velocity.magnitude > 0.01)
+        {
+            anim.Play("GunSway");
         }
     }
 }
