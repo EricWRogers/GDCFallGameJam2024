@@ -122,10 +122,22 @@ MonoBehaviour:
   f: {x: 0, y: 0}
   d: 0
   index: 0
+  spriteIndex: 0
+  spriteTime: 0
   spriteInfos:
   - min: -1
     max: -0.8
-    texture: {fileID: 2800000, guid: da1a63524ba011415afd3a6b0b43ed07, type: 3}
+    textures:
+    - {fileID: 2800000, guid: c5cca669bf472df4eae0e71d03efecd0, type: 3}
+    - {fileID: 2800000, guid: 69c0646f22cc1e7489ff5f943606a613, type: 3}
+    - {fileID: 2800000, guid: 724070b045e4acc439a85ddb4108ca23, type: 3}
+    - {fileID: 2800000, guid: 8b4b3494cbb8f6744af81e1ef6b9184c, type: 3}
+    - {fileID: 2800000, guid: 853ec9dd88af1964dab94cd6c4c9d97e, type: 3}
+    - {fileID: 2800000, guid: 3f9972fd8fc0e60498dbc2d588bb40eb, type: 3}
+    - {fileID: 2800000, guid: 681b95bef52e14f4fae93ccbb88861bc, type: 3}
+    delay: 0.2
   - min: -0.8
     max: 1
-    texture: {fileID: 2800000, guid: fc8c570efda3dac789e9954d7db43a55, type: 3}
+    textures:
+    - {fileID: 2800000, guid: c5cca669bf472df4eae0e71d03efecd0, type: 3}
+    delay: 0
