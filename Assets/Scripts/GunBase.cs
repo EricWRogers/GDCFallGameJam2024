@@ -72,31 +72,45 @@ namespace SolarStudios
             }
         }
 
-        public void ShootButton()
+        public bool ShootButton()
         {
             if(Input.GetKeyDown(shootKey) && Time.time >= nextFireTime && currentAmmo != 0)
             {
-            if (fireType == FireType.Prefab)
-            {
-                ShootPrefab();
+                if (fireType == FireType.Prefab)
+                {
+                    ShootPrefab();
+                    return true;
+                }
+                else if (fireType == FireType.Raycast)
+                {
+                    ShootRaycast();
+                    return true;
+                }
+                else if (fireType == FireType.Frustum)
+                {
+                    ShootFrustum();
+                    return true;
+                }
             }
-            else if (fireType == FireType.Raycast)
-            {
-                ShootRaycast();
-            }
-            else if (fireType == FireType.Frustum)
-            {
-                ShootFrustum();
-            }
-            }
+
+            return false;
         }
 
-        public void ReloadButton()
+        public bool ReloadButton()
         {
             if (Input.GetKeyDown(reloadKey))
             {
                 Reload();
+                return true;
             }
+
+            if (currentAmmo == 0 && Input.GetKeyDown(shootKey))
+            {
+                Reload();
+                return true;
+            }
+
+            return false;
         }
 
         public void Reload()
