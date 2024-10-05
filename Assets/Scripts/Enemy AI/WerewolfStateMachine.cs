@@ -13,6 +13,9 @@ public class WerewolfStateMachine : SimpleStateMachine
     public bool isAlive = false;
     public float attackRange = 1.0f;
 
+    [HideInInspector]
+    public AudioSource attackSource;
+
 
     private Health enemyHealth;
     [HideInInspector]
@@ -33,6 +36,8 @@ public class WerewolfStateMachine : SimpleStateMachine
     void Start()
     {
         enemyHealth = GetComponent<Health>();
+        attackSource = GetComponent<AudioSource>();
+        Debug.Log("Found the: " + attackSource.name);
 
         target = GameObject.FindGameObjectWithTag("Player").transform;
 

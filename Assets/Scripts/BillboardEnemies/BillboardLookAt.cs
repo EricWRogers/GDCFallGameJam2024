@@ -7,6 +7,8 @@ public class BillboardLookAt : MonoBehaviour
     public Vector2 f;
     public float d = 0.0f;
     public int index = 0;
+    public int spriteIndex = 0;
+    public float spriteTime = 0.0f;
     public List<SpriteInfo> spriteInfos;
     private Transform m_player;
     private Renderer m_rend;
@@ -32,10 +34,29 @@ public class BillboardLookAt : MonoBehaviour
         {
             if (spriteInfos[i].min <= d && spriteInfos[i].max >= d)
             {
-                index = i;
-                m_rend.material.mainTexture = spriteInfos[i].texture;
+                if (index != i)
+                {
+                    spriteIndex = 0;
+                    spriteTime = 0.0f;
+                }
 
-                m_rend.material.mainTextureScale = new Vector2 ((right) ? 1.0f : -1.0f, 1.0f);
+                spriteTime += Time.deltaTime;
+
+                if (spriteInfos[i].delay < spriteTime)
+                {
+                    spriteIndex++;
+                    spriteTime = 0.0f;
+                    
+                    if (spriteIndex >= spriteInfos[i].textures.Count)
+                    {
+                        spriteIndex = 0;
+                    }
+                }
+
+                index = i;
+                m_rend.material.mainTexture = spriteInfos[i].textures[spriteIndex];
+
+                //m_rend.material.mainTextureScale = new Vector2 ((right) ? 1.0f : -1.0f, 1.0f);
                 return;
             }
         }
@@ -47,5 +68,6 @@ public class SpriteInfo
 {
     public float min;
     public float max;
-    public Texture texture;
+    public List<Texture2D> textures;
+    public float delay;
 }
