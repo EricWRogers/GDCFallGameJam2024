@@ -1,9 +1,6 @@
 using SuperPupSystems.StateMachine;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Events;
 
 [System.Serializable]
 public class ChaseState : SimpleState
@@ -13,6 +10,7 @@ public class ChaseState : SimpleState
     private float attackRange;
     public override void OnStart()
     {
+        Debug.Log("Enter Chase State");
         base.OnStart();
 
         if (stateMachine is ZombieStateMachine zombieStateMachine)
@@ -26,6 +24,7 @@ public class ChaseState : SimpleState
         {
             agent = werewolfStateMachine.GetComponent<NavMeshAgent>();
             agent.SetDestination(werewolfStateMachine.transform.position);
+            attackRange = werewolfStateMachine.attackRange + 0.5f;
         }
     }
 
@@ -37,7 +36,7 @@ public class ChaseState : SimpleState
             {
                 agent.SetDestination(zombieStateMachine.target.position);
 
-                if (Vector3.Distance(agent.transform.position, zombieStateMachine.target.position) < zombieStateMachine.attackRange)
+                if (Vector3.Distance(agent.transform.position, zombieStateMachine.target.position) < attackRange)
                 {
                     stateMachine.ChangeState(nameof(AttackState));
                 }
@@ -50,7 +49,7 @@ public class ChaseState : SimpleState
             {
                 agent.SetDestination(werewolfStateMachine.target.position);
 
-                if (Vector3.Distance(agent.transform.position, werewolfStateMachine.target.position) < werewolfStateMachine.attackRange)
+                if (Vector3.Distance(agent.transform.position, werewolfStateMachine.target.position) < attackRange)
                 {
                     stateMachine.ChangeState(nameof(AttackState));
                 }
