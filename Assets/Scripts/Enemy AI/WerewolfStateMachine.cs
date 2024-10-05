@@ -37,6 +37,7 @@ public class WerewolfStateMachine : SimpleStateMachine
     {
         enemyHealth = GetComponent<Health>();
         attackSource = GetComponent<AudioSource>();
+        Debug.Log("Found the: " + attackSource.name);
 
         target = GameObject.FindGameObjectWithTag("Player").transform;
 
