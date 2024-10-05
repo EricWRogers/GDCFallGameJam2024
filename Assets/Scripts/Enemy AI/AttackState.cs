@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
 
+[System.Serializable]
 public class AttackState : SimpleState
 {
     public Timer time;
