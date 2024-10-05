@@ -25,10 +25,11 @@ namespace SolarStudios
         }
 
 
-        public AudioSource gunFire;
-        public AudioSource reload;
+        private AudioSource gunFire;
+        private AudioSource reload;
+        private ParticleSystem particalEffect;
         
-        public Animator anim;
+        private Animator anim;
       
         
         public abstract void OnShoot();
@@ -61,9 +62,15 @@ namespace SolarStudios
         public LayerMask enemyLayer; 
         public Camera playerCamera; 
 
-        private void Start()
+        public void Start()
         {
-            anim = GetComponent<Animator>();
+            AudioSource[] audioSources = GetComponents<AudioSource>();
+            if (audioSources.Length > 0)
+            {
+                gunFire = audioSources[0];
+                reload = audioSources[1];
+            }
+            particalEffect = GetComponentInChildren<ParticleSystem>();
             currentAmmo = maxAmmo;
             anim = GetComponent<Animator>();
             
@@ -116,6 +123,7 @@ namespace SolarStudios
 
         public void Reload()
         {
+            particalEffect.Stop();
             OnReload();
             reload.Play();
             anim.Play("Reload");
@@ -130,6 +138,7 @@ namespace SolarStudios
                 OnShoot();
                 anim.Play("GunShoot");
                 gunFire.Play();
+                particalEffect.Play();
                 currentAmmo--;
                 SpawnMethod(firePoint.transform, transform.localRotation);
             }
@@ -140,6 +149,7 @@ namespace SolarStudios
                 OnShoot();
                 anim.Play("GunShoot");
                 gunFire.Play();
+                particalEffect.Play();
                 currentAmmo--;
                 SpawnMethod(firePoint.transform, transform.localRotation);
             }
@@ -159,6 +169,7 @@ namespace SolarStudios
                     OnRayHit();
                     OnShoot();
                     gunFire.Play();
+                    particalEffect.Play();
                     currentAmmo--;
                 }
             }
@@ -179,6 +190,9 @@ namespace SolarStudios
         void ShootFrustum()
         {
             OnShoot();
+            gunFire.Play();
+            anim.Play("GunShoot");
+            particalEffect.Play();
             Plane[] planes = GeometryUtility.CalculateFrustumPlanes(playerCamera);
 
         

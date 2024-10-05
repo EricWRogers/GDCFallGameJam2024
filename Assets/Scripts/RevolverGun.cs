@@ -30,7 +30,7 @@ public class RevolverGun : GunBase
     
     void Start()
     {
-        
+        base.Start();
     }
 
     
