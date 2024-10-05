@@ -99,6 +99,7 @@ public class AttackState : SimpleState
 
             if (time.timeLeft <= 0 && !isLunging)
             {
+                werewolfStateMachine.attackSource.Play();
                 WerewolfLungeAttack();
             }
 
