@@ -8,6 +8,7 @@ public class ChaseState : SimpleState
 
     private NavMeshAgent agent;
     private float attackRange;
+    public float buffer = 5f;
     public override void OnStart()
     {
         Debug.Log("Enter Chase State");
@@ -24,7 +25,7 @@ public class ChaseState : SimpleState
         {
             agent = werewolfStateMachine.GetComponent<NavMeshAgent>();
             agent.SetDestination(werewolfStateMachine.transform.position);
-            attackRange = werewolfStateMachine.attackRange + 0.5f;
+            attackRange = werewolfStateMachine.attackRange + buffer;
         }
     }
 
@@ -49,7 +50,7 @@ public class ChaseState : SimpleState
             {
                 agent.SetDestination(werewolfStateMachine.target.position);
 
-                if (Vector3.Distance(agent.transform.position, werewolfStateMachine.target.position) < attackRange)
+                if (Vector3.Distance(agent.transform.position, werewolfStateMachine.target.position) <= attackRange)
                 {
                     stateMachine.ChangeState(nameof(AttackState));
                 }

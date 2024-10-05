@@ -14,6 +14,12 @@ public class AttackState : SimpleState
     private float attackRange = 0f;
     private bool playerInRange;
     public bool isAttacking;
+
+    public float lungeSpeed = 20.0f;
+
+    [SerializeField]
+    private Vector3 werewolfDashPos;
+
     public override void OnStart()
     {
         Debug.Log("Enter Attacking State");
@@ -31,6 +37,9 @@ public class AttackState : SimpleState
             agent = werewolfStateMachine.GetComponent<NavMeshAgent>();
             agent.SetDestination(werewolfStateMachine.transform.position);
             attackRange = werewolfStateMachine.attackRange + 0.5f;
+
+            // Add the listener here so it doesn't get added multiple times
+            attack.AddListener(WerewolfLungeAttack);
         }
 
         time.StartTimer(2, true);
@@ -49,7 +58,7 @@ public class AttackState : SimpleState
             if (!isAttacking)
             {
                 isAttacking = true;
-                attack.Invoke();
+                attack.Invoke(); // Trigger attack event
             }
 
             if (Vector3.Distance(agent.transform.position, zombieStateMachine.target.position) > zombieStateMachine.attackRange)
@@ -71,7 +80,7 @@ public class AttackState : SimpleState
             if (!isAttacking)
             {
                 isAttacking = true;
-                attack.Invoke();
+                attack.Invoke(); // Trigger attack event
             }
 
             if (Vector3.Distance(agent.transform.position, werewolfStateMachine.target.position) > werewolfStateMachine.attackRange)
@@ -89,16 +98,29 @@ public class AttackState : SimpleState
 
     public override void OnExit()
     {
+        // Remove listener to prevent issues on exit
+        if (stateMachine is WerewolfStateMachine)
+        {
+            attack.RemoveListener(WerewolfLungeAttack);
+        }
         base.OnExit();
     }
 
     public void WerewolfLungeAttack()
     {
-        //if (stateMachine is WerewolfStateMachine werewolfStateMachine)
-        //{
-        //    agent = werewolfStateMachine.GetComponent<NavMeshAgent>();
-        //    agent.SetDestination(werewolfStateMachine.transform.position);
-        //    attackRange = werewolfStateMachine.attackRange + 5f;
-        //}
+        if (stateMachine is WerewolfStateMachine werewolfStateMachine)
+        {
+            Debug.Log("The Werewolf Lunged");
+
+            Vector3 lungeDirection = (werewolfStateMachine.target.position - werewolfStateMachine.transform.position).normalized;
+
+            werewolfStateMachine.transform.position += lungeDirection * lungeSpeed * Time.deltaTime;
+
+            if (Vector3.Distance(werewolfStateMachine.transform.position, werewolfStateMachine.target.position) < attackRange)
+            {
+                stopAttacking.Invoke();
+                stateMachine.ChangeState(nameof(ChaseState));
+            }
+        }
     }
 }
