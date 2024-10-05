@@ -34,7 +34,7 @@ public class AgroEnemy : MonoBehaviour
                     werewolfStateMachine.enabled = true;
                 }
             }
-            Destroy(this, 2);
+            Destroy(this);
         }
     }
 }
