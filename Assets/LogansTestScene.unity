@@ -228,65 +228,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 60}
---- !u!1 &437382866
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 437382868}
-  - component: {fileID: 437382867}
-  m_Layer: 0
-  m_Name: PlayerBulletPool
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &437382867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 437382866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7eb19cb3de245ec4eb252af73839f7c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 6869537744713930359, guid: 53209a5550f8def4290110435a83798f, type: 3}
-  poolSize: 20
-  objectPool: []
-  onSpawn:
-    m_PersistentCalls:
-      m_Calls: []
-  onRecycle:
-    m_PersistentCalls:
-      m_Calls: []
-  onRecycleAll:
-    m_PersistentCalls:
-      m_Calls: []
-  onInitalize:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!4 &437382868
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 437382866}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &479071232
 GameObject:
   m_ObjectHideFlags: 0
@@ -927,7 +868,7 @@ PrefabInstance:
         type: 3}
       propertyPath: pool
       value: 
-      objectReference: {fileID: 437382867}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -944,4 +885,3 @@ SceneRoots:
   - {fileID: 1037677206}
   - {fileID: 105760604}
   - {fileID: 1391073801}
-  - {fileID: 437382868}

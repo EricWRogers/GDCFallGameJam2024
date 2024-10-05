@@ -114,7 +114,7 @@ namespace SolarStudios
                 OnShoot();
                 gunFire.Play();
                 currentAmmo--;
-                SpawnMethod(firePoint.transform, Quaternion.identity);
+                SpawnMethod(firePoint.transform, transform.localRotation);
             }
 
             if (fireMode == FireMode.RapidFire)
@@ -123,7 +123,7 @@ namespace SolarStudios
                 OnShoot();
                 gunFire.Play();
                 currentAmmo--;
-                SpawnMethod(firePoint.transform, Quaternion.identity);
+                SpawnMethod(firePoint.transform, transform.localRotation);
             }
         }
 
@@ -149,7 +149,8 @@ namespace SolarStudios
         {
             if (doUsePool)
             {
-                pool.Spawn(trans.position, rotation);
+               GameObject obj = pool.Spawn(trans.position, rotation);
+               pool.Recycle(obj, 3);
             }
             else
             {

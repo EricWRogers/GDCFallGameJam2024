@@ -372,8 +372,9 @@ MonoBehaviour:
   fireMode: 0
   fireType: 0
   pool: {fileID: 0}
-  bulletPrefab: {fileID: 0}
-  doUsePool: 1
+  bulletPrefab: {fileID: 6869537744713930359, guid: 53209a5550f8def4290110435a83798f,
+    type: 3}
+  doUsePool: 0
   shootRange: 100
   enemyLayer:
     serializedVersion: 2
