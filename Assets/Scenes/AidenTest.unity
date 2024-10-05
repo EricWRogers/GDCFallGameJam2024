@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 231309166}
   - component: {fileID: 231309165}
   - component: {fileID: 231309164}
+  - component: {fileID: 231309167}
   m_Layer: 0
   m_Name: HitBox
   m_TagString: Untagged
@@ -206,7 +207,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -260,6 +261,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 231309162}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &231309167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231309162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daddd149eb20ac841a7ebb5c303ef189, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmg: 1
 --- !u!1 &517882522
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,7 +572,7 @@ PrefabInstance:
     - target: {fileID: 2953231765664939145, guid: 9921efa450512a340825b2ad17a9c260,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.631241
+      value: -7.8577924
       objectReference: {fileID: 0}
     - target: {fileID: 2953231765664939145, guid: 9921efa450512a340825b2ad17a9c260,
         type: 3}
@@ -568,12 +582,12 @@ PrefabInstance:
     - target: {fileID: 2953231765664939145, guid: 9921efa450512a340825b2ad17a9c260,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.55
+      value: 0.8692126
       objectReference: {fileID: 0}
     - target: {fileID: 2953231765664939145, guid: 9921efa450512a340825b2ad17a9c260,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 2953231765664939145, guid: 9921efa450512a340825b2ad17a9c260,
         type: 3}
@@ -583,7 +597,7 @@ PrefabInstance:
     - target: {fileID: 2953231765664939145, guid: 9921efa450512a340825b2ad17a9c260,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 2953231765664939145, guid: 9921efa450512a340825b2ad17a9c260,
         type: 3}
@@ -598,7 +612,7 @@ PrefabInstance:
     - target: {fileID: 2953231765664939145, guid: 9921efa450512a340825b2ad17a9c260,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 2953231765664939145, guid: 9921efa450512a340825b2ad17a9c260,
         type: 3}
@@ -1290,7 +1304,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  maxHealth: 100
+  maxHealth: 2
   currentHealth: 1
 --- !u!195 &1472324542
 NavMeshAgent:
@@ -1302,7 +1316,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 2.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -1339,7 +1353,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1472324540}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc23164b40dcd294283f64df9b5c06c0, type: 3}
   m_Name: 
@@ -1399,7 +1413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultMaterial: {fileID: 2100000, guid: dcf655db3a7d4dd45a0641ea8dd3a82f, type: 2}
   hurtMaterial: {fileID: 2100000, guid: 3af4780804b335f49a8ee67874a13a9d, type: 2}
-  targetRenderer: {fileID: 900230647}
+  targetRenderer: {fileID: 1887537951}
   timer: {fileID: 1296399378}
 --- !u!95 &1472324547
 Animator:
@@ -1507,6 +1521,12 @@ MonoBehaviour:
 --- !u!4 &1887537948 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7665207947484576150, guid: 0bd9465c9b6b84143ba448df4e32bc50,
+    type: 3}
+  m_PrefabInstance: {fileID: 1065429697}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1887537951 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6126955525945107697, guid: 0bd9465c9b6b84143ba448df4e32bc50,
     type: 3}
   m_PrefabInstance: {fileID: 1065429697}
   m_PrefabAsset: {fileID: 0}

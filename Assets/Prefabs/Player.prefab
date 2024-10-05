@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 864956780891587959}
   m_Layer: 0
   m_Name: GFX
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,11 +116,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2953231765664939145}
-  - component: {fileID: 7358947254498742579}
   - component: {fileID: 1608364975878559451}
+  - component: {fileID: 7358947254498742579}
+  - component: {fileID: 6200437374159932119}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,21 +143,6 @@ Transform:
   - {fileID: 8189727511736216932}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7358947254498742579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2581638604191980036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e8369d9ba1d294468bc150d070114d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  sprintSpeed: 3
-  camSpeed: 1
 --- !u!54 &1608364975878559451
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -184,6 +170,60 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &7358947254498742579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2581638604191980036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e8369d9ba1d294468bc150d070114d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  sprintSpeed: 10
+  camSpeed: 1
+  maxSpeed: 10
+--- !u!114 &6200437374159932119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2581638604191980036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 604dfbbf654f92618bc36972daaa4968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  healed:
+    m_PersistentCalls:
+      m_Calls: []
+  hurt:
+    m_PersistentCalls:
+      m_Calls: []
+  outOfHealth:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6200437374159932119}
+        m_TargetAssemblyTypeName: SuperPupSystems.Helper.Health, Assembly-CSharp
+        m_MethodName: DestroyGameObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  maxHealth: 5
+  currentHealth: 1
 --- !u!1 &8642490340638305960
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,7 +237,7 @@ GameObject:
   - component: {fileID: 663811599611669340}
   m_Layer: 0
   m_Name: Cam
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
