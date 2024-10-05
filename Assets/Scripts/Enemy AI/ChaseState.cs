@@ -17,14 +17,24 @@ public class ChaseState : SimpleState
         if (stateMachine is ZombieStateMachine zombieStateMachine)
         {
             agent = zombieStateMachine.GetComponent<NavMeshAgent>();
-            agent.SetDestination(zombieStateMachine.transform.position);
+
+            // Check if agent is active and on the NavMesh before setting destination
+            if (agent.isActiveAndEnabled && agent.isOnNavMesh)
+            {
+                agent.SetDestination(zombieStateMachine.transform.position);
+            }
             attackRange = zombieStateMachine.attackRange + 0.5f;
         }
 
         if (stateMachine is WerewolfStateMachine werewolfStateMachine)
         {
             agent = werewolfStateMachine.GetComponent<NavMeshAgent>();
-            agent.SetDestination(werewolfStateMachine.transform.position);
+
+            // Check if agent is active and on the NavMesh before setting destination
+            if (agent.isActiveAndEnabled && agent.isOnNavMesh)
+            {
+                agent.SetDestination(werewolfStateMachine.transform.position);
+            }
             attackRange = werewolfStateMachine.attackRange + buffer;
         }
     }
@@ -35,7 +45,15 @@ public class ChaseState : SimpleState
         {
             if (zombieStateMachine.isAlive)
             {
-                agent.SetDestination(zombieStateMachine.target.position);
+                // Check if agent is active and on the NavMesh before setting destination
+                if (agent.isActiveAndEnabled && agent.isOnNavMesh)
+                {
+                    agent.SetDestination(zombieStateMachine.target.position);
+                }
+                else
+                {
+                    Debug.LogWarning("Zombie NavMeshAgent is not on NavMesh or not active.");
+                }
 
                 if (Vector3.Distance(agent.transform.position, zombieStateMachine.target.position) < attackRange)
                 {
@@ -48,7 +66,15 @@ public class ChaseState : SimpleState
         {
             if (werewolfStateMachine.isAlive)
             {
-                agent.SetDestination(werewolfStateMachine.target.position);
+                // Check if agent is active and on the NavMesh before setting destination
+                if (agent.isActiveAndEnabled && agent.isOnNavMesh)
+                {
+                    agent.SetDestination(werewolfStateMachine.target.position);
+                }
+                else
+                {
+                    Debug.LogWarning("Werewolf NavMeshAgent is not on NavMesh or not active.");
+                }
 
                 if (Vector3.Distance(agent.transform.position, werewolfStateMachine.target.position) <= attackRange)
                 {

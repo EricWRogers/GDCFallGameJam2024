@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 65861824}
   - component: {fileID: 65861823}
   - component: {fileID: 65861822}
+  - component: {fileID: 65861826}
   m_Layer: 0
   m_Name: Werewolf
   m_TagString: Untagged
@@ -158,6 +159,7 @@ Transform:
   m_Children:
   - {fileID: 996650201}
   - {fileID: 1865915870}
+  - {fileID: 178551997}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &65861822
@@ -201,6 +203,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     stateMachine: {fileID: 0}
+    buffer: 5
   attack:
     stateStart:
       m_PersistentCalls:
@@ -210,6 +213,7 @@ MonoBehaviour:
         m_Calls: []
     stateMachine: {fileID: 0}
     time: {fileID: 65861822}
+    werewolfTimer: {fileID: 178551998}
     attack:
       m_PersistentCalls:
         m_Calls: []
@@ -217,8 +221,9 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     isAttacking: 0
-    lungeSpeed: 5
-    werewolfDashPos: {x: 0, y: 0, z: 0}
+    lungeSpeed: 10
+    isLunging: 0
+    lungeDuration: 2
   isAlive: 0
   attackRange: 1
   target: {fileID: 0}
@@ -270,6 +275,84 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!54 &65861826
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65861820}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 16
+  m_CollisionDetection: 0
+--- !u!1 &178551996
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 178551997}
+  - component: {fileID: 178551998}
+  m_Layer: 0
+  m_Name: LungeTimer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &178551997
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178551996}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 65861821}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &178551998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178551996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad54517dc19258185960ef6d2f3a1b93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeout:
+    m_PersistentCalls:
+      m_Calls: []
+  autoStart: 0
+  autoRestart: 0
+  countDownTime: 1
+  timeScale: 1
 --- !u!1 &231309162
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,6 +472,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 1
+--- !u!1 &308032267 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2581638604191980036, guid: 9921efa450512a340825b2ad17a9c260,
+    type: 3}
+  m_PrefabInstance: {fileID: 962130474}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &517882522
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,15 +823,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6200437374159932119, guid: 9921efa450512a340825b2ad17a9c260,
+        type: 3}
+      propertyPath: outOfHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200437374159932119, guid: 9921efa450512a340825b2ad17a9c260,
+        type: 3}
+      propertyPath: outOfHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 308032267}
+    - target: {fileID: 6200437374159932119, guid: 9921efa450512a340825b2ad17a9c260,
+        type: 3}
+      propertyPath: outOfHealth.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 6200437374159932119, guid: 9921efa450512a340825b2ad17a9c260,
+        type: 3}
+      propertyPath: outOfHealth.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7358947254498742579, guid: 9921efa450512a340825b2ad17a9c260,
         type: 3}
       propertyPath: speed
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7358947254498742579, guid: 9921efa450512a340825b2ad17a9c260,
         type: 3}
       propertyPath: sprintSpeed
-      value: 10
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1484,6 +1593,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     stateMachine: {fileID: 0}
+    buffer: 5
   attack:
     stateStart:
       m_PersistentCalls:
@@ -1493,6 +1603,7 @@ MonoBehaviour:
         m_Calls: []
     stateMachine: {fileID: 0}
     time: {fileID: 1472324548}
+    werewolfTimer: {fileID: 0}
     attack:
       m_PersistentCalls:
         m_Calls:
@@ -1513,7 +1624,8 @@ MonoBehaviour:
         m_Calls: []
     isAttacking: 0
     lungeSpeed: 5
-    werewolfDashPos: {x: 0, y: 0, z: 0}
+    isLunging: 0
+    lungeDuration: 1
   isAlive: 0
   attackRange: 1
   target: {fileID: 0}
@@ -1734,6 +1846,7 @@ GameObject:
   - component: {fileID: 2122568484}
   - component: {fileID: 2122568483}
   - component: {fileID: 2122568482}
+  - component: {fileID: 2122568485}
   m_Layer: 0
   m_Name: HitBox
   m_TagString: Untagged
@@ -1750,7 +1863,7 @@ Transform:
   m_GameObject: {fileID: 2122568480}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.986}
+  m_LocalPosition: {x: 1.037, y: 0, z: 0.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1827,6 +1940,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2122568480}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2122568485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2122568480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daddd149eb20ac841a7ebb5c303ef189, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmg: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
