@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     public float sprintSpeed;
     public float camSpeed;
+    public float maxSpeed = 10f;
+
     private float rotationX = 0f;
 
 
@@ -56,6 +58,12 @@ public class PlayerMovement : MonoBehaviour
         Vector3 move = transform.right * moveX + transform.forward * moveZ;
         move.Normalize();
 
-        rb.MovePosition(rb.position + move * currentSpeed * Time.fixedDeltaTime);
+        rb.AddForce(move * currentSpeed, ForceMode.Force);
+
+
+        if (rb.velocity.magnitude > maxSpeed)
+        {
+            rb.velocity = rb.velocity.normalized * maxSpeed;
+        }
     }
 }
