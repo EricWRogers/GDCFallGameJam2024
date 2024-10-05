@@ -8,6 +8,7 @@ using UnityEngine.Events;
 public class AttackState : SimpleState
 {
     public Timer time;
+    public Timer werewolfTimer;
     public UnityEvent attack;
     public UnityEvent stopAttacking;
     private NavMeshAgent agent;
@@ -15,10 +16,10 @@ public class AttackState : SimpleState
     private bool playerInRange;
     public bool isAttacking;
 
-    public float lungeSpeed = 20.0f;
-
-    [SerializeField]
-    private Vector3 werewolfDashPos;
+    public float lungeSpeed = 10.0f;
+    public bool isLunging = false;
+    public float lungeDuration = 2.0f;
+    private float lungeTimeElapsed = 0f;
 
     public override void OnStart()
     {
@@ -28,18 +29,25 @@ public class AttackState : SimpleState
         if (stateMachine is ZombieStateMachine zombieStateMachine)
         {
             agent = zombieStateMachine.GetComponent<NavMeshAgent>();
-            agent.SetDestination(zombieStateMachine.transform.position);
+
+            // Check if agent is active and on the NavMesh before setting destination
+            if (agent.isActiveAndEnabled && agent.isOnNavMesh)
+            {
+                agent.SetDestination(zombieStateMachine.transform.position);
+            }
             attackRange = zombieStateMachine.attackRange + 0.5f;
         }
 
         if (stateMachine is WerewolfStateMachine werewolfStateMachine)
         {
             agent = werewolfStateMachine.GetComponent<NavMeshAgent>();
-            agent.SetDestination(werewolfStateMachine.transform.position);
-            attackRange = werewolfStateMachine.attackRange + 0.5f;
 
-            // Add the listener here so it doesn't get added multiple times
-            attack.AddListener(WerewolfLungeAttack);
+            // Check if agent is active and on the NavMesh before setting destination
+            if (agent.isActiveAndEnabled && agent.isOnNavMesh)
+            {
+                agent.SetDestination(werewolfStateMachine.transform.position);
+            }
+            attackRange = werewolfStateMachine.attackRange + 0.5f;
         }
 
         time.StartTimer(2, true);
@@ -76,11 +84,22 @@ public class AttackState : SimpleState
         if (stateMachine is WerewolfStateMachine werewolfStateMachine)
         {
             werewolfStateMachine.transform.LookAt(werewolfStateMachine.target);
-
+            
             if (!isAttacking)
             {
+                
                 isAttacking = true;
                 attack.Invoke(); // Trigger attack event
+            }
+
+            if (isLunging)
+            {
+                LungeMove(dt);
+            }
+
+            if (time.timeLeft <= 0 && !isLunging)
+            {
+                WerewolfLungeAttack();
             }
 
             if (Vector3.Distance(agent.transform.position, werewolfStateMachine.target.position) > werewolfStateMachine.attackRange)
@@ -98,29 +117,43 @@ public class AttackState : SimpleState
 
     public override void OnExit()
     {
-        // Remove listener to prevent issues on exit
-        if (stateMachine is WerewolfStateMachine)
-        {
-            attack.RemoveListener(WerewolfLungeAttack);
-        }
         base.OnExit();
     }
 
     public void WerewolfLungeAttack()
     {
-        if (stateMachine is WerewolfStateMachine werewolfStateMachine)
+        //agent.enabled = false;
+        Debug.Log("The Werewolf Lunged");
+
+        isLunging = true; // Mark lunge as in progress
+        lungeTimeElapsed = 0f; // Reset the timer
+    }
+
+    public void LungeMove(float dt)
+    {
+        if (agent.isOnNavMesh)
         {
-            Debug.Log("The Werewolf Lunged");
+            Vector3 lungeDirection = ((WerewolfStateMachine)stateMachine).transform.forward;
 
-            Vector3 lungeDirection = (werewolfStateMachine.target.position - werewolfStateMachine.transform.position).normalized;
+            // Move manually during lunge
+            agent.Move(lungeDirection * lungeSpeed * dt);
+            //((WerewolfStateMachine)stateMachine).transform.Translate(lungeDirection * lungeSpeed * dt, Space.World);
 
-            werewolfStateMachine.transform.position += lungeDirection * lungeSpeed * Time.deltaTime;
+            lungeTimeElapsed += dt;
 
-            if (Vector3.Distance(werewolfStateMachine.transform.position, werewolfStateMachine.target.position) < attackRange)
+            if (lungeTimeElapsed >= lungeDuration || Vector3.Distance(((WerewolfStateMachine)stateMachine).transform.position, ((WerewolfStateMachine)stateMachine).target.position) < attackRange)
             {
+                isLunging = false;
                 stopAttacking.Invoke();
                 stateMachine.ChangeState(nameof(ChaseState));
             }
+        }
+        else
+        {
+            Debug.LogWarning("The AI is not on the NavMesh!");
+            isLunging = false;
+            stopAttacking.Invoke();
+            stateMachine.ChangeState(nameof(ChaseState));
         }
     }
 }

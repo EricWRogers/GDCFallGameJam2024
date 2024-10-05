@@ -25,10 +25,11 @@ namespace SolarStudios
         }
 
 
-        public AudioSource gunFire;
-        public AudioSource reload;
-        [HideInInspector]
-        public Animator anim;
+        private AudioSource gunFire;
+        private AudioSource reload;
+        private ParticleSystem particalEffect;
+        
+        private Animator anim;
       
         
         public abstract void OnShoot();
@@ -61,8 +62,15 @@ namespace SolarStudios
         public LayerMask enemyLayer; 
         public Camera playerCamera; 
 
-        private void Start()
+        public void Start()
         {
+            AudioSource[] audioSources = GetComponents<AudioSource>();
+            if (audioSources.Length > 0)
+            {
+                gunFire = audioSources[0];
+                reload = audioSources[1];
+            }
+            particalEffect = GetComponentInChildren<ParticleSystem>();
             currentAmmo = maxAmmo;
             anim = GetComponent<Animator>();
             
@@ -74,7 +82,7 @@ namespace SolarStudios
 
         public bool ShootButton()
         {
-            if(Input.GetKeyDown(shootKey) && Time.time >= nextFireTime && currentAmmo != 0)
+            if (Input.GetKeyDown(shootKey) && Time.time >= nextFireTime && currentAmmo != 0 && !CheckAnim("Reload"))
             {
                 if (fireType == FireType.Prefab)
                 {
@@ -115,8 +123,10 @@ namespace SolarStudios
 
         public void Reload()
         {
+            particalEffect.Stop();
             OnReload();
             reload.Play();
+            anim.Play("Reload");
             currentAmmo = maxAmmo;
         }
 
@@ -126,7 +136,9 @@ namespace SolarStudios
             {
                 nextFireTime = Time.time + fireRate;
                 OnShoot();
+                anim.Play("GunShoot");
                 gunFire.Play();
+                particalEffect.Play();
                 currentAmmo--;
                 SpawnMethod(firePoint.transform, transform.localRotation);
             }
@@ -135,7 +147,9 @@ namespace SolarStudios
             {
                 nextFireTime = Time.time + fireRate;
                 OnShoot();
+                anim.Play("GunShoot");
                 gunFire.Play();
+                particalEffect.Play();
                 currentAmmo--;
                 SpawnMethod(firePoint.transform, transform.localRotation);
             }
@@ -153,7 +167,9 @@ namespace SolarStudios
                 {
                     nextFireTime = Time.time + fireRate;
                     OnRayHit();
+                    OnShoot();
                     gunFire.Play();
+                    particalEffect.Play();
                     currentAmmo--;
                 }
             }
@@ -173,6 +189,10 @@ namespace SolarStudios
         }
         void ShootFrustum()
         {
+            OnShoot();
+            gunFire.Play();
+            anim.Play("GunShoot");
+            particalEffect.Play();
             Plane[] planes = GeometryUtility.CalculateFrustumPlanes(playerCamera);
 
         
@@ -200,6 +220,18 @@ namespace SolarStudios
             else
             {
                 Debug.Log("No enemy in range");
+            }
+        }
+
+        public bool CheckAnim(string name)
+        {
+            if(anim.GetCurrentAnimatorStateInfo(0).IsName(name))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }
