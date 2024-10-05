@@ -69,9 +69,21 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = rb.velocity.normalized * maxSpeed;
         }
-        if (rb.velocity.magnitude > 0.01)
+        if (rb.velocity.magnitude > 0.01 && !CheckAnim("GunShoot"))
         {
             anim.Play("GunSway");
+        }
+    }
+
+    public bool CheckAnim(string name)
+    {
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName(name))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }
