@@ -35,7 +35,7 @@ public class BillboardLookAt : MonoBehaviour
                 index = i;
                 m_rend.material.mainTexture = spriteInfos[i].texture;
 
-                m_rend.material.mainTextureScale = new Vector2 ((right) ? -1.0f : 1.0f, 1.0f);
+                m_rend.material.mainTextureScale = new Vector2 ((right) ? 1.0f : -1.0f, 1.0f);
                 return;
             }
         }
