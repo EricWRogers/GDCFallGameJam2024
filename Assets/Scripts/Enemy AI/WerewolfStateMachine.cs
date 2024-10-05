@@ -1,12 +1,10 @@
+using SuperPupSystems.StateMachine;
+using SuperPupSystems.Helper;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
-using SuperPupSystems.StateMachine;
-using SuperPupSystems.Helper;
 
-
-public class ZombieStateMachine : SimpleStateMachine
+public class WerewolfStateMachine : SimpleStateMachine
 {
     public ChaseState chase;
     public AttackState attack;
