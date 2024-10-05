@@ -36,7 +36,10 @@ public class RevolverGun : GunBase
     
     void Update()
     {
-        ShootButton();
-        ReloadButton();
+        if (ShootButton())
+            return;
+        
+        if (ReloadButton())
+            return;
     }
 }
