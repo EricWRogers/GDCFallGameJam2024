@@ -34,7 +34,7 @@ public class ZombieStateMachine : SimpleStateMachine
     // Start is called before the first frame update
     void Start()
     {
-        enemyHealth = GetComponent<Health>();
+        enemyHealth = gameObject.GetComponent<Health>();
 
         target = GameObject.FindGameObjectWithTag("Player").transform;
 

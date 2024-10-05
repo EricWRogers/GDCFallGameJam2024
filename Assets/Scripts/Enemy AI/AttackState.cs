@@ -1,11 +1,10 @@
 using SuperPupSystems.StateMachine;
 using SuperPupSystems.Helper;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
 
+[System.Serializable]
 public class AttackState : SimpleState
 {
     public Timer time;
@@ -17,6 +16,7 @@ public class AttackState : SimpleState
     public bool isAttacking;
     public override void OnStart()
     {
+        Debug.Log("Enter Attacking State");
         base.OnStart();
 
         if (stateMachine is ZombieStateMachine zombieStateMachine)
