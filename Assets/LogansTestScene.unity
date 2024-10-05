@@ -276,6 +276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  sprintSpeed: 3
   camSpeed: 1
 --- !u!54 &453598707
 Rigidbody:

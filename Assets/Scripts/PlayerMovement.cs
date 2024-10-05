@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody rb;
     public float speed;
+    public float sprintSpeed;
     public float camSpeed;
     private float rotationX = 0f;
 
@@ -40,14 +41,21 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
+        float currentSpeed;
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            currentSpeed = sprintSpeed;
+        }
+        else
+        {
+            currentSpeed = speed;
+        }
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveZ = Input.GetAxisRaw("Vertical");
 
         Vector3 move = transform.right * moveX + transform.forward * moveZ;
         move.Normalize();
 
-        rb.MovePosition(rb.position + move * speed * Time.fixedDeltaTime);
-
-
+        rb.MovePosition(rb.position + move * currentSpeed * Time.fixedDeltaTime);
     }
 }
