@@ -1,4 +1,5 @@
 using SolarStudios;
+using Unity.Mathematics;
 using UnityEngine;
 
 
@@ -20,13 +21,14 @@ namespace SolarStudios
         {
             Prefab,
             Raycast,
-            DOOM
+            Frustum
         }
 
 
-        private AudioSource gunFire;
-        private AudioSource reload;
-        private Animator anim;
+        public AudioSource gunFire;
+        public AudioSource reload;
+        [HideInInspector]
+        public Animator anim;
       
         
         public abstract void OnShoot();
@@ -52,7 +54,7 @@ namespace SolarStudios
         public ObjectPool pool;
         [Tooltip("Bullet Prefab. Use this instead of objectpool")]
         public GameObject bulletPrefab;
-        private bool doUsePool = false;
+        public bool doUsePool = false;
 
         [Header("Doom Specific Shooting")]
         public float shootRange = 100f;         
@@ -63,16 +65,7 @@ namespace SolarStudios
         {
             currentAmmo = maxAmmo;
             anim = GetComponent<Animator>();
-            AudioSource[] audioSources = GetComponents<AudioSource>(); //Not a mega fan of this but ig it works.
-            if (audioSources.Length >= 2)
-            {
-                gunFire = audioSources[0];
-                reload = audioSources[1];
-            }
-            else
-            {
-                Debug.LogError("Not enough AudioSource components found!");
-            }
+            
             if(pool != null)
             {
                 doUsePool = true;
@@ -91,9 +84,9 @@ namespace SolarStudios
             {
                 ShootRaycast();
             }
-            else if (fireType == FireType.DOOM)
+            else if (fireType == FireType.Frustum)
             {
-                ShootDoom();
+                ShootFrustum();
             }
             }
         }
@@ -121,7 +114,7 @@ namespace SolarStudios
                 OnShoot();
                 gunFire.Play();
                 currentAmmo--;
-                SpawnMethod(firePoint.transform);
+                SpawnMethod(firePoint.transform, Quaternion.identity);
             }
 
             if (fireMode == FireMode.RapidFire)
@@ -130,7 +123,7 @@ namespace SolarStudios
                 OnShoot();
                 gunFire.Play();
                 currentAmmo--;
-                SpawnMethod(firePoint.transform);
+                SpawnMethod(firePoint.transform, Quaternion.identity);
             }
         }
 
@@ -163,7 +156,7 @@ namespace SolarStudios
                 Instantiate(bulletPrefab, trans.position, rotation);
             }
         }
-        void ShootDoom()
+        void ShootFrustum()
         {
             Plane[] planes = GeometryUtility.CalculateFrustumPlanes(playerCamera);
 
