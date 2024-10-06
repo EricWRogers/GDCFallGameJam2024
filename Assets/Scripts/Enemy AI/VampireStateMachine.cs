@@ -7,7 +7,8 @@ using SuperPupSystems.Helper;
 public class VampireStateMachine : SimpleStateMachine
 {
     public ChaseState chase;
-    public AttackState attack;
+    public PhaseOneState phaseOne;
+    public PhaseTwoState phaseTwo;
 
     [HideInInspector]
     public bool isAlive = false;
@@ -23,7 +24,8 @@ public class VampireStateMachine : SimpleStateMachine
     void Awake()
     {
         states.Add(chase);
-        states.Add(attack);
+        states.Add(phaseOne);
+        states.Add(phaseTwo);
 
         foreach (SimpleState s in states)
         {
@@ -47,9 +49,23 @@ public class VampireStateMachine : SimpleStateMachine
         {
             isAlive = true;
         }
-        else
+        else if (enemyHealth.currentHealth <= 0)
         {
             isAlive = false;
         }
+        if(GetHealthPercentage() < 95f && GetHealthPercentage() > 60f)
+        {
+            //Phase 1 (Summoner Phase No Tracking)
+        }
+        if (GetHealthPercentage() <= 60f && GetHealthPercentage() > 0f)
+        {
+            //Enter Phase 2 of Boss Fight (Summoner/Melee with Tracking)
+        }
+        
+    }
+
+    public float GetHealthPercentage()
+    {
+        return (enemyHealth.currentHealth / enemyHealth.maxHealth) * 100f;
     }
 }

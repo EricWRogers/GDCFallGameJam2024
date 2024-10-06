@@ -111,7 +111,7 @@ public class ChaseState : SimpleState
 
                 if (Vector3.Distance(agent.transform.position, vampireStateMachine.target.position) <= attackRange)
                 {
-                    stateMachine.ChangeState(nameof(AttackState));
+                    stateMachine.ChangeState(nameof(PhaseOneState));
                 }
             }
         }
