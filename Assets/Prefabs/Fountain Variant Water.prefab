@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7067223417087199712}
   - component: {fileID: 4250421293967522117}
   - component: {fileID: 5786552987731584424}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4848,7 +4848,7 @@ GameObject:
   - component: {fileID: 6490248390062224668}
   - component: {fileID: 2422625655587578448}
   - component: {fileID: 7799001151141764087}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9685,7 +9685,7 @@ GameObject:
   - component: {fileID: 8567962678138460490}
   - component: {fileID: 1347170116915764454}
   - component: {fileID: 2648432529323456385}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14522,7 +14522,7 @@ GameObject:
   - component: {fileID: 6361947070771730278}
   - component: {fileID: 1709242741915300737}
   - component: {fileID: 5434892484430112583}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19359,7 +19359,7 @@ GameObject:
   - component: {fileID: 7083245392226133242}
   - component: {fileID: 4181440400505101541}
   - component: {fileID: 6784950424369183549}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24194,7 +24194,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2948251571875373813}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FountainP2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24229,7 +24229,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8505731222584696749}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FountainP2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24266,7 +24266,7 @@ GameObject:
   - component: {fileID: 7057423599887289275}
   - component: {fileID: 3751594395659888969}
   - component: {fileID: 3978209244950680885}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29103,7 +29103,7 @@ GameObject:
   - component: {fileID: 2474981331447516639}
   - component: {fileID: 4643310093654267712}
   - component: {fileID: 3436602523260975637}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33942,7 +33942,7 @@ GameObject:
   - component: {fileID: 7184280263541199662}
   - component: {fileID: 5067373266498715663}
   - component: {fileID: 4304497295856460102}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38779,7 +38779,7 @@ GameObject:
   - component: {fileID: 8153464226128943321}
   - component: {fileID: 8412723943425101566}
   - component: {fileID: 7476657772460536592}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43621,7 +43621,12 @@ PrefabInstance:
     - target: {fileID: 2594662127287553053, guid: c1e7a14d7c9110a4d8c94242e6e90d14,
         type: 3}
       propertyPath: m_Name
-      value: Fountain Variant
+      value: Fountain Variant Water
+      objectReference: {fileID: 0}
+    - target: {fileID: 2594662127287553053, guid: c1e7a14d7c9110a4d8c94242e6e90d14,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3407474330917017255, guid: c1e7a14d7c9110a4d8c94242e6e90d14,
         type: 3}
@@ -43701,8 +43706,40 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2474981331447516639}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2594662127287553053, guid: c1e7a14d7c9110a4d8c94242e6e90d14,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8742872875006273174}
   m_SourcePrefab: {fileID: 100100000, guid: c1e7a14d7c9110a4d8c94242e6e90d14, type: 3}
+--- !u!1 &5909539800990884762 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2594662127287553053, guid: c1e7a14d7c9110a4d8c94242e6e90d14,
+    type: 3}
+  m_PrefabInstance: {fileID: 8503060351740964743}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &8742872875006273174
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5909539800990884762}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5076798556035486163, guid: 5df17cfde08c6e941b0deadb757bcb69, type: 3}
 --- !u!4 &6433734630174128416 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3407474330917017255, guid: c1e7a14d7c9110a4d8c94242e6e90d14,
