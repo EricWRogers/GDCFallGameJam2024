@@ -10,6 +10,7 @@ public class AttackState : SimpleState
     public Timer time;
     public Timer werewolfTimer;
     public UnityEvent attack;
+    public UnityEvent lunge;
     public UnityEvent stopAttacking;
     private NavMeshAgent agent;
     private float attackRange = 0f;
@@ -146,6 +147,7 @@ public class AttackState : SimpleState
             {
                 isLunging = false;
                 stopAttacking.Invoke();
+                lunge.Invoke();
                 stateMachine.ChangeState(nameof(ChaseState));
             }
         }
