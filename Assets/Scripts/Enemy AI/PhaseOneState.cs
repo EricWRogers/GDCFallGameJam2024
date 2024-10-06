@@ -9,11 +9,10 @@ using UnityEngine.Events;
 [System.Serializable]
 public class PhaseOneState : SimpleState
 {
-    private NavMeshAgent agent;
     private float attackRange;
     public float buffer = 25f;
     private bool isAttacking;
-    public Timer timer;
+    public Timer phaseOneTimer;
     public UnityEvent spawnBats;
     public UnityEvent stopAttacking;
 
@@ -24,46 +23,58 @@ public class PhaseOneState : SimpleState
 
         if (stateMachine is VampireStateMachine vampireStateMachine)
         {
-            // Calculate the adjusted attack range
             attackRange = vampireStateMachine.attackRange + buffer;
         }
 
-        timer.StartTimer(2, true);
-        if (spawnBats == null)
+        // Start the timer and enable autoRestart
+        phaseOneTimer.StartTimer(2, true);
+        phaseOneTimer.autoRestart = true;
+
+        isAttacking = true;
+
+        // Add listener for spawning bats once
+        if (spawnBats != null)
         {
-            spawnBats = new UnityEvent();
+            phaseOneTimer.timeout.AddListener(SpawnBats);
         }
     }
 
     public override void UpdateState(float dt)
     {
-
-        if (stateMachine is VampireStateMachine vampireStateMachine)
+        if (stateMachine is VampireStateMachine vampireStateMachine && vampireStateMachine.isAlive)
         {
-            if (vampireStateMachine.isAlive)
+            vampireStateMachine.transform.LookAt(vampireStateMachine.target);
+
+            // Check if isAttacking is true and timer has reached zero
+            if (isAttacking && phaseOneTimer.timeLeft <= 0)
             {
-                vampireStateMachine.transform.LookAt(vampireStateMachine.target);
+                Debug.Log("Spawn the bats");
+                spawnBats.Invoke();
 
-                if (!isAttacking)
-                {
-                    isAttacking = true;
-                    spawnBats.Invoke();
-                }
+                isAttacking = false; // Stop attacking after first trigger
+                stopAttacking.Invoke();
+            }
 
-                timer.autoRestart = false;
-                if (timer.timeLeft <= 0)
-                {
-                    isAttacking = false;
-                    stopAttacking.Invoke();
-                }
+            if (vampireStateMachine.GetHealthPercentage() <= 50 && !(stateMachine.stateName.ToLower() == typeof(PhaseTwoState).ToString().ToLower() ))
+            {
+                vampireStateMachine.ChangeState(nameof(PhaseThreeState));
             }
         }
     }
 
     public override void OnExit()
     {
+        // Remove the listener to prevent duplicate calls when re-entering this state
+        if (spawnBats != null)
+        {
+            phaseOneTimer.timeout.RemoveListener(SpawnBats);
+        }
+        stopAttacking.Invoke();
         base.OnExit();
     }
 
-
+    public void SpawnBats()
+    {
+        spawnBats.Invoke();
+    }
 }

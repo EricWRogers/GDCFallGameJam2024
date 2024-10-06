@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ff1efe3ecc9d4e41ae724cd1da09963, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 20
+  range: 10
   targetTag: Player
   targetPriority: 0
 --- !u!114 &5061566443551962887
