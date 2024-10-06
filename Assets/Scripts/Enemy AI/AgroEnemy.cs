@@ -44,15 +44,14 @@ public class AgroEnemy : MonoBehaviour
 
             foreach (GameObject enemy in enemiesInZone)
             {
-                var zombieStateMachine = enemy.GetComponent<ZombieStateMachine>();
-                var werewolfStateMachine = enemy.GetComponent<WerewolfStateMachine>();
-
-                if (zombieStateMachine != null)
+                if (enemy.GetComponent<ZombieStateMachine>() != null)
                 {
+                    var zombieStateMachine = enemy.GetComponent<ZombieStateMachine>();
                     zombieStateMachine.enabled = true;
                 }
-                else if (werewolfStateMachine != null)
+                else if (enemy.GetComponent<WerewolfStateMachine>() != null)
                 {
+                    var werewolfStateMachine = enemy.GetComponent<WerewolfStateMachine>();
                     werewolfStateMachine.enabled = true;
                 }
             }
