@@ -5,6 +5,7 @@ using SuperPupSystems.StateMachine;
 public class AgroEnemy : MonoBehaviour
 {
     public float agroRange = 25.0f;
+    public bool on = false;
     [SerializeField]
     private List<GameObject> enemiesInZone = new List<GameObject>();
 
@@ -16,10 +17,31 @@ public class AgroEnemy : MonoBehaviour
         }
     }
 
+    void FixedUpdate()
+    {
+        if (on && transform.childCount == 0)
+        {
+            AudioSource backgroundMusic = GameObject.Find("Background Music").GetComponent<AudioSource>();
+            AudioSource battleMusic = GameObject.Find("Battle Music").GetComponent<AudioSource>();
+
+            backgroundMusic.volume = 1.0f;
+            battleMusic.Stop();
+
+            Destroy(this);
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && on == false)
         {
+            on = true;
+            AudioSource backgroundMusic = GameObject.Find("Background Music").GetComponent<AudioSource>();
+            AudioSource battleMusic = GameObject.Find("Battle Music").GetComponent<AudioSource>();
+
+            backgroundMusic.volume = 0.2f;
+            battleMusic.Play();
+
             foreach (GameObject enemy in enemiesInZone)
             {
                 var zombieStateMachine = enemy.GetComponent<ZombieStateMachine>();
@@ -34,7 +56,6 @@ public class AgroEnemy : MonoBehaviour
                     werewolfStateMachine.enabled = true;
                 }
             }
-            Destroy(this);
         }
     }
 }

@@ -44,8 +44,6 @@ public class PlayerMovement : MonoBehaviour
     private void Look()
     {
         float mouseX = Input.GetAxis("Horizontal") * camSpeed * Time.deltaTime;
-
-        Debug.Log(mouseX);
        
         transform.Rotate(Vector3.up * mouseX, Space.Self);
         
