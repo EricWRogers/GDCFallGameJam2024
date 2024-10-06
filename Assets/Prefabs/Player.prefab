@@ -1194,9 +1194,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5000
-  sprintSpeed: 50000
+  sprintSpeed: 6000
   camSpeed: 200
-  maxSpeed: 5000
+  maxSpeed: 6000
 --- !u!114 &6200437374159932119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1256,11 +1256,12 @@ AudioSource:
   m_GameObject: {fileID: 2581638604191980036}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 81d13d1d9e98dd84486f41e98dd3d9a2, type: 3}
+  OutputAudioMixerGroup: {fileID: -9119374926023106916, guid: 9db03488891ee014dad251d3c931aeb1,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 93396747ab9053a4b9729f5d3c38f224, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 1.5
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -1411,8 +1412,9 @@ AudioSource:
   m_GameObject: {fileID: 2581638604191980036}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 81d13d1d9e98dd84486f41e98dd3d9a2, type: 3}
+  OutputAudioMixerGroup: {fileID: -9119374926023106916, guid: 9db03488891ee014dad251d3c931aeb1,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 70bfdcd51509bd74a827e5d8abe5dd62, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
