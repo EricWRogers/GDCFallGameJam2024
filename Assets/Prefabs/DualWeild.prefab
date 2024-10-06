@@ -85,6 +85,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7583111719859425742}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!82 &7678020472892209991
 AudioSource:
   m_ObjectHideFlags: 0
@@ -98,7 +110,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 93d46dc4756268745b92b0b7e00fce6e, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.777
+  m_Volume: 0.863
   m_Pitch: 1
   Loop: 0
   Mute: 0
