@@ -1194,9 +1194,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5000
-  sprintSpeed: 50000
+  sprintSpeed: 6000
   camSpeed: 200
-  maxSpeed: 5000
+  maxSpeed: 6000
 --- !u!114 &6200437374159932119
 MonoBehaviour:
   m_ObjectHideFlags: 0
