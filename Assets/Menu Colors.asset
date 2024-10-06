@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Menu Colors
   m_EditorClassIdentifier: 
   colorMode: 3
-  topLeft: {r: 0.8862745, g: 0.47451976, b: 0.06274507, a: 1}
+  topLeft: {r: 0.8679245, g: 0.51338553, b: 0.15884651, a: 1}
   topRight: {r: 0.990566, g: 0.022427881, b: 0.11492523, a: 1}
   bottomLeft: {r: 1, g: 0.9326451, b: 0.12641507, a: 1}
   bottomRight: {r: 0.7830189, g: 0.65203613, b: 0.113759324, a: 1}
