@@ -7,7 +7,7 @@ using SuperPupSystems.Helper;
 public class VampireStateMachine : SimpleStateMachine
 {
     public PhaseOneState phaseOne;
-    public PhaseTwoState phaseTwo;
+    //public PhaseTwoState phaseTwo;
     public PhaseThreeState phaseThree;
 
     [HideInInspector]
@@ -20,11 +20,12 @@ public class VampireStateMachine : SimpleStateMachine
     private Health enemyHealth;
     [HideInInspector]
     public Transform target;
+    private SimpleState currentState;
 
     void Awake()
     {
         states.Add(phaseOne);
-        states.Add(phaseTwo);
+        //states.Add(phaseTwo);
         states.Add(phaseThree);
 
         foreach (SimpleState s in states)
@@ -53,14 +54,12 @@ public class VampireStateMachine : SimpleStateMachine
         {
             isAlive = false;
         }
-        if (GetHealthPercentage() <= 66f && GetHealthPercentage() > 33f)
+        
+        float healthPercentage = GetHealthPercentage();
+
+        // Check to enter Phase 2 if health is between 33% and 66%
+        if (healthPercentage <= 50f)
         {
-            //Enter Phase 2 of Boss Fight (Summoner/Melee with Tracking)
-            ChangeState(nameof(PhaseTwoState));
-        }
-        if (GetHealthPercentage() <= 66f && GetHealthPercentage() > 33f)
-        {
-            //Enter Phase 3 of Boss Fight (More Bats)
             ChangeState(nameof(PhaseThreeState));
         }
 
@@ -69,6 +68,10 @@ public class VampireStateMachine : SimpleStateMachine
 
     public float GetHealthPercentage()
     {
-        return (enemyHealth.currentHealth / enemyHealth.maxHealth) * 100f;
+        Debug.Log("Current Health: " + enemyHealth.currentHealth);
+        Debug.Log("Max Health: " + enemyHealth.maxHealth);
+        float healthpercent = ((float)enemyHealth.currentHealth / (float)enemyHealth.maxHealth) * 100f;
+        Debug.Log("Health percent: " + healthpercent);
+        return healthpercent;
     }
 }

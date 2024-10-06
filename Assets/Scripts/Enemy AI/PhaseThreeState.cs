@@ -21,7 +21,7 @@ public class PhaseThreeState : SimpleState
 
     public override void OnStart()
     {
-        Debug.Log("Enter Phase One State");
+        Debug.Log("Enter Phase Three State");
         base.OnStart();
 
         if (stateMachine is VampireStateMachine vampireStateMachine)
