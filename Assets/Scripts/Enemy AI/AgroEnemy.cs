@@ -6,6 +6,7 @@ public class AgroEnemy : MonoBehaviour
 {
     public float agroRange = 25.0f;
     public bool on = false;
+
     [SerializeField]
     private List<GameObject> enemiesInZone = new List<GameObject>();
 
@@ -21,11 +22,16 @@ public class AgroEnemy : MonoBehaviour
     {
         if (on && transform.childCount == 0)
         {
-            AudioSource backgroundMusic = GameObject.Find("Background Music").GetComponent<AudioSource>();
-            AudioSource battleMusic = GameObject.Find("Battle Music").GetComponent<AudioSource>();
+            AgroEnemy[] argoZone = FindObjectsOfType<AgroEnemy>();
 
-            backgroundMusic.volume = 1.0f;
-            battleMusic.Stop();
+            if (argoZone.Length <= 1)
+            {
+                AudioSource backgroundMusic = GameObject.Find("Background Music").GetComponent<AudioSource>();
+                AudioSource battleMusic = GameObject.Find("Battle Music").GetComponent<AudioSource>();
+
+                backgroundMusic.volume = 1.0f;
+                battleMusic.Stop();
+            }
 
             Destroy(this);
         }
@@ -39,8 +45,11 @@ public class AgroEnemy : MonoBehaviour
             AudioSource backgroundMusic = GameObject.Find("Background Music").GetComponent<AudioSource>();
             AudioSource battleMusic = GameObject.Find("Battle Music").GetComponent<AudioSource>();
 
-            backgroundMusic.volume = 0.2f;
-            battleMusic.Play();
+            if (battleMusic.isPlaying == false)
+            {
+                backgroundMusic.volume = 0.2f;
+                battleMusic.Play();
+            }
 
             foreach (GameObject enemy in enemiesInZone)
             {
