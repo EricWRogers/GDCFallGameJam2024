@@ -13,7 +13,15 @@ public class DumbestWinLogic : MonoBehaviour
         if (enemies.Length == 0)
         {
             win.SetActive(true);
-            Destroy(this);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            
         }
     }
+
+    public void Retry()
+    {
+        SceneManager.LoadScene("Gameplay");
+    }
+    
 }
