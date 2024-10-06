@@ -1060,6 +1060,7 @@ MonoBehaviour:
     stateMachine: {fileID: 0}
     buffer: 25
     batTimer: {fileID: 0}
+    spellTimer: {fileID: 0}
     spawnBats:
       m_PersistentCalls:
         m_Calls: []
@@ -1775,6 +1776,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 5941286512548709419, guid: 9921efa450512a340825b2ad17a9c260,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6465224516304091245, guid: 9921efa450512a340825b2ad17a9c260,
         type: 3}
       propertyPath: m_Layer
@@ -1789,6 +1795,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8642490340638305960, guid: 9921efa450512a340825b2ad17a9c260,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9195508137469908186, guid: 9921efa450512a340825b2ad17a9c260,
         type: 3}
