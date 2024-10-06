@@ -11,6 +11,7 @@ public class RevolverGun : GunBase
     public UnityEvent OnShootEvent;
     public UnityEvent OnReloadEvent;
     public TMP_Text text;
+    public GameObject dual;
 
 
     public override void OnRayHit()
@@ -45,5 +46,10 @@ public class RevolverGun : GunBase
             return;
         
         text. text = currentAmmo + "/" + maxAmmo;
+    }
+
+    private void OnDisable()
+    {
+        dual.SetActive(true);
     }
 }

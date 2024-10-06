@@ -143,7 +143,7 @@ namespace SolarStudios
                 gunFire.Play();
                 particalEffect.Play();
                 currentAmmo--;
-                SpawnMethod(firePoint.transform, transform.localRotation);
+                SpawnMethod(firePoint.transform, transform.parent.localRotation);
             }
 
             if (fireMode == FireMode.RapidFire)
@@ -154,7 +154,7 @@ namespace SolarStudios
                 gunFire.Play();
                 particalEffect.Play();
                 currentAmmo--;
-                SpawnMethod(firePoint.transform, transform.localRotation);
+                SpawnMethod(firePoint.transform, transform.parent.localRotation);
             }
         }
 

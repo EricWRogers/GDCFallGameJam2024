@@ -28,9 +28,10 @@ public class DualWeild : GunBase
 
     public override void OnShoot()
     {
-        Instantiate(bulletPrefab, secondFirePoint.transform.position, Quaternion.identity);
+       
         if(currentAmmo !=0)
         {
+            Instantiate(bulletPrefab, secondFirePoint.transform.position, transform.parent.localRotation);
             currentAmmo--;
             
         }

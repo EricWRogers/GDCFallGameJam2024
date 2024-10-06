@@ -16,8 +16,8 @@ public class PlayerMovement : MonoBehaviour
 
     private Camera cam;
     private Vector3 move;
-
-    private Animator anim;
+    [HideInInspector]
+    public Animator anim;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -90,6 +90,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (rb.velocity.magnitude > 0.1 && !CheckAnim("DualGunShoot") && !CheckAnim("DualReload"))
             {
+                Debug.Log("Work");
                 anim.Play("DualGunSway");
             }
         }
