@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3863598080025280251}
   - component: {fileID: 3764904928928504736}
   - component: {fileID: 2463626768130098085}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 6598575262733269348}
   - component: {fileID: 6133801603765382135}
   - component: {fileID: 4521138616136970100}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 3168500880718579166}
   - component: {fileID: 3951938185367645605}
   - component: {fileID: 864956780891587959}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GFX
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 2729022043786221958}
   - component: {fileID: 1610994977467634820}
   - component: {fileID: 6349218510177213620}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ResumeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -448,7 +448,7 @@ GameObject:
   - component: {fileID: 1028965725720235967}
   - component: {fileID: 496231965341926089}
   - component: {fileID: 6225223986782874623}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MainMenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -580,7 +580,7 @@ GameObject:
   - component: {fileID: 2460687015136050437}
   - component: {fileID: 7573707564306423874}
   - component: {fileID: 1834896476952210209}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MainMenuText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -721,7 +721,7 @@ GameObject:
   - component: {fileID: 8159701713527723567}
   - component: {fileID: 3458063826378017119}
   - component: {fileID: 6116419048690562252}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -741,7 +741,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7926393933040185086}
   - {fileID: 6598575262733269348}
   - {fileID: 5643838969729858491}
   - {fileID: 1610753386273298071}
@@ -792,7 +791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5000
-  sprintSpeed: 5000
+  sprintSpeed: 50000
   camSpeed: 100
   maxSpeed: 5000
 --- !u!114 &6200437374159932119
@@ -1106,7 +1105,7 @@ GameObject:
   - component: {fileID: 677915996444070656}
   - component: {fileID: 1402946609844940219}
   - component: {fileID: 7210246611594800133}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MainMenuText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1242,7 +1241,7 @@ GameObject:
   - component: {fileID: 534414951233992763}
   - component: {fileID: 4642201230613634888}
   - component: {fileID: 3269280304465281261}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1317,7 +1316,7 @@ GameObject:
   - component: {fileID: 6768685173044000342}
   - component: {fileID: 1547402759140435517}
   - component: {fileID: 4852422762875209201}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6203,7 +6202,7 @@ GameObject:
   - component: {fileID: 5578713882559212887}
   - component: {fileID: 4407060541866503763}
   - component: {fileID: 358124182145045526}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BulletCountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6340,7 +6339,7 @@ GameObject:
   - component: {fileID: 2106379718851465156}
   - component: {fileID: 6556651697222215655}
   - component: {fileID: 3369869471707948418}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6478,7 +6477,7 @@ GameObject:
   - component: {fileID: 7397938149668667154}
   - component: {fileID: 5164066043957940398}
   - component: {fileID: 5968118132580061621}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MainMenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6610,7 +6609,7 @@ GameObject:
   - component: {fileID: 5339272082661315971}
   - component: {fileID: 3929958004977993301}
   - component: {fileID: 6467739561106115690}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: THIS IS OUR RENDER DONT TURN IT OFF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6680,7 +6679,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8922775405601680956}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BulletArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6719,7 +6718,7 @@ GameObject:
   - component: {fileID: 4385544516232811138}
   - component: {fileID: 736933520166993095}
   - component: {fileID: 867298374135147591}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: QuitText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6855,7 +6854,7 @@ GameObject:
   - component: {fileID: 6285621415546013083}
   - component: {fileID: 3423519152115451473}
   - component: {fileID: 3474609607706003718}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LoseMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6935,7 +6934,7 @@ GameObject:
   - component: {fileID: 3926116809094857277}
   - component: {fileID: 7530274557208106520}
   - component: {fileID: 6905916124205257741}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: QuitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7065,7 +7064,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5152946889551885700}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7099,7 +7098,7 @@ GameObject:
   - component: {fileID: 2898992288836126680}
   - component: {fileID: 7556760288770850593}
   - component: {fileID: 751749662881748103}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LoseText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7238,7 +7237,7 @@ GameObject:
   - component: {fileID: 9091456340187053293}
   - component: {fileID: 3249247554514188596}
   - component: {fileID: 2750247500956037819}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HudCam
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -7372,7 +7371,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3985928889982606345}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WinMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7409,7 +7408,7 @@ GameObject:
   - component: {fileID: 5863478298495021480}
   - component: {fileID: 8328882862829696645}
   - component: {fileID: 8442828715936956480}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: QuitText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7545,7 +7544,7 @@ GameObject:
   - component: {fileID: 8755316869130458409}
   - component: {fileID: 7375945291519415381}
   - component: {fileID: 3988234057719082657}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RetryText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7681,7 +7680,7 @@ GameObject:
   - component: {fileID: 4615522027452767365}
   - component: {fileID: 2334125907395730555}
   - component: {fileID: 5655918345082000058}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PauseMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7760,7 +7759,7 @@ GameObject:
   - component: {fileID: 4799896627533940509}
   - component: {fileID: 877956592792006983}
   - component: {fileID: 2374512902588640783}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7862,7 +7861,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4525275751758614995}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LoseMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7888,124 +7887,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 906, y: 416}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &7131828119070744644
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7926393933040185086}
-  - component: {fileID: 6973241590272506523}
-  - component: {fileID: 4533426674840249015}
-  m_Layer: 0
-  m_Name: Point Light
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7926393933040185086
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7131828119070744644}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.018157959, y: 1.4599991, z: 0.5700073}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2953231765664939145}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!108 &6973241590272506523
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7131828119070744644}
-  m_Enabled: 1
-  serializedVersion: 10
-  m_Type: 2
-  m_Shape: 0
-  m_Color: {r: 1, g: 0.59399676, b: 0, a: 1}
-  m_Intensity: 5
-  m_Range: 9.14
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-    m_CullingMatrixOverride:
-      e00: 1
-      e01: 0
-      e02: 0
-      e03: 0
-      e10: 0
-      e11: 1
-      e12: 0
-      e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingLayerMask: 1
-  m_Lightmapping: 4
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_UseBoundingSphereOverride: 0
-  m_UseViewFrustumForShadowCasterCull: 1
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
---- !u!114 &4533426674840249015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7131828119070744644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Version: 3
-  m_UsePipelineSettings: 1
-  m_AdditionalLightsShadowResolutionTier: 2
-  m_LightLayerMask: 1
-  m_RenderingLayers: 1
-  m_CustomShadowLayers: 0
-  m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
-  m_LightCookieSize: {x: 1, y: 1}
-  m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
 --- !u!1 &7566357805834690789
 GameObject:
   m_ObjectHideFlags: 0
@@ -8015,7 +7896,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3840511472658364288}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AnimRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8049,7 +7930,7 @@ GameObject:
   - component: {fileID: 8802979936368303560}
   - component: {fileID: 3628402679124897318}
   - component: {fileID: 2193158219118581279}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PausedText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8186,7 +8067,7 @@ GameObject:
   - component: {fileID: 8213281530930186812}
   - component: {fileID: 939440847174130419}
   - component: {fileID: 3827806982836664734}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RetryButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8319,7 +8200,7 @@ GameObject:
   - component: {fileID: 7360873730319456668}
   - component: {fileID: 2662025114563094911}
   - component: {fileID: 456934571607673917}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: QuitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8452,7 +8333,7 @@ GameObject:
   - component: {fileID: 9210228154740706382}
   - component: {fileID: 3510631086808004735}
   - component: {fileID: 7452106613535125156}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ResumeButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8585,7 +8466,7 @@ GameObject:
   - component: {fileID: 8475134257880125761}
   - component: {fileID: 663811599611669340}
   - component: {fileID: 1408313210293502794}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cam
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -8721,7 +8602,7 @@ GameObject:
   - component: {fileID: 7368529122873956339}
   - component: {fileID: 8116001285851822256}
   - component: {fileID: 3731256125847955048}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8794,7 +8675,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6971278038734239829}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Firepoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8898,6 +8779,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: pistol
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c21b09220b5690b4490194a44bfa2fa0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
