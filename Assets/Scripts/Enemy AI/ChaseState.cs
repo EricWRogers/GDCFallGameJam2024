@@ -37,18 +37,6 @@ public class ChaseState : SimpleState
             }
             attackRange = werewolfStateMachine.attackRange + buffer;
         }
-
-        if (stateMachine is VampireStateMachine vampireStateMachine)
-        {
-            agent = vampireStateMachine.GetComponent<NavMeshAgent>();
-
-            // Check if agent is active and on the NavMesh before setting destination
-            if (agent.isActiveAndEnabled && agent.isOnNavMesh)
-            {
-                agent.SetDestination(vampireStateMachine.transform.position);
-            }
-            attackRange = vampireStateMachine.attackRange + buffer;
-        }
     }
 
     public override void UpdateState(float dt)
@@ -91,27 +79,6 @@ public class ChaseState : SimpleState
                 if (Vector3.Distance(agent.transform.position, werewolfStateMachine.target.position) <= attackRange)
                 {
                     stateMachine.ChangeState(nameof(AttackState));
-                }
-            }
-        }
-
-        if (stateMachine is VampireStateMachine vampireStateMachine)
-        {
-            if (vampireStateMachine.isAlive)
-            {
-                // Check if agent is active and on the NavMesh before setting destination
-                if (agent.isActiveAndEnabled && agent.isOnNavMesh)
-                {
-                    agent.SetDestination(vampireStateMachine.target.position);
-                }
-                else
-                {
-                    Debug.LogWarning("Werewolf NavMeshAgent is not on NavMesh or not active.");
-                }
-
-                if (Vector3.Distance(agent.transform.position, vampireStateMachine.target.position) <= attackRange)
-                {
-                    stateMachine.ChangeState(nameof(PhaseOneState));
                 }
             }
         }

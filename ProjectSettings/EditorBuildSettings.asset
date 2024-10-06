@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu UI.unity
     guid: 3c0b01c51e3515c4d8397c0651ecca9f
   - enabled: 1
-    path: Assets/Scenes/Terain.unity
-    guid: 8a794db0cf3de3c4c995cd3d2b5043ff
+    path: Assets/Scenes/Gameplay.unity
+    guid: 037ee788dad0886a8958efde66713fce
   m_configObjects: {}

@@ -6,9 +6,9 @@ using SuperPupSystems.Helper;
 
 public class VampireStateMachine : SimpleStateMachine
 {
-    public ChaseState chase;
     public PhaseOneState phaseOne;
     public PhaseTwoState phaseTwo;
+    public PhaseThreeState phaseThree;
 
     [HideInInspector]
     public bool isAlive = false;
@@ -23,9 +23,9 @@ public class VampireStateMachine : SimpleStateMachine
 
     void Awake()
     {
-        states.Add(chase);
         states.Add(phaseOne);
         states.Add(phaseTwo);
+        states.Add(phaseThree);
 
         foreach (SimpleState s in states)
         {
@@ -40,7 +40,7 @@ public class VampireStateMachine : SimpleStateMachine
 
         target = GameObject.FindGameObjectWithTag("Player").transform;
 
-        ChangeState(nameof(ChaseState));
+        ChangeState(nameof(PhaseOneState));
     }
 
     void Update()
@@ -53,15 +53,18 @@ public class VampireStateMachine : SimpleStateMachine
         {
             isAlive = false;
         }
-        if(GetHealthPercentage() < 95f && GetHealthPercentage() > 60f)
-        {
-            //Phase 1 (Summoner Phase No Tracking)
-        }
-        if (GetHealthPercentage() <= 60f && GetHealthPercentage() > 0f)
+        if (GetHealthPercentage() <= 66f && GetHealthPercentage() > 33f)
         {
             //Enter Phase 2 of Boss Fight (Summoner/Melee with Tracking)
+            ChangeState(nameof(PhaseTwoState));
         }
-        
+        if (GetHealthPercentage() <= 66f && GetHealthPercentage() > 33f)
+        {
+            //Enter Phase 3 of Boss Fight (More Bats)
+            ChangeState(nameof(PhaseThreeState));
+        }
+
+
     }
 
     public float GetHealthPercentage()

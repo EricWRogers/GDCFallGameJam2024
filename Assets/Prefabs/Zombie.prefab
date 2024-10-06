@@ -239,10 +239,10 @@ MonoBehaviour:
   outOfHealth:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7226374571902777531}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 66978483139290659}
+        m_TargetAssemblyTypeName: SuperPupSystems.Helper.Health, Assembly-CSharp
+        m_MethodName: DestroyGameObject
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -313,6 +313,9 @@ MonoBehaviour:
             m_StringArgument: ZombieAttack
             m_BoolArgument: 0
           m_CallState: 2
+    lunge:
+      m_PersistentCalls:
+        m_Calls: []
     stopAttacking:
       m_PersistentCalls:
         m_Calls: []
