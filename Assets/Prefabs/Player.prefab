@@ -483,7 +483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reloadKey: 114
-  shootKey: 323
+  shootKey: 306
   currentAmmo: 10
   maxAmmo: 10
   damage: 0
