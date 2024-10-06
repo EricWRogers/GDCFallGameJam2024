@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.11827449, g: 0.043755185, b: 0.039650943, a: 1}
+  m_IndirectSpecularColor: {r: 0.118263386, g: 0.04376744, b: 0.039655495, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -691,6 +691,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   win: {fileID: 2139966955}
+  healthBar: {fileID: 2139966957}
+  bulletArea: {fileID: 2139966956}
 --- !u!4 &1549746506
 Transform:
   m_ObjectHideFlags: 0
@@ -1096,6 +1098,18 @@ PrefabInstance:
 --- !u!1 &2139966955 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9005367187791422264, guid: 9921efa450512a340825b2ad17a9c260,
+    type: 3}
+  m_PrefabInstance: {fileID: 2139966954}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2139966956 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4744014277754626708, guid: 9921efa450512a340825b2ad17a9c260,
+    type: 3}
+  m_PrefabInstance: {fileID: 2139966954}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2139966957 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6683725806281703871, guid: 9921efa450512a340825b2ad17a9c260,
     type: 3}
   m_PrefabInstance: {fileID: 2139966954}
   m_PrefabAsset: {fileID: 0}
