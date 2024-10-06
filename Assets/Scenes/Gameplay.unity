@@ -1058,21 +1058,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5110651600338411129, guid: 9921efa450512a340825b2ad17a9c260,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7832283948610905260, guid: 9921efa450512a340825b2ad17a9c260,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1549746505}
-    - target: {fileID: 7832283948610905260, guid: 9921efa450512a340825b2ad17a9c260,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Retry
-      objectReference: {fileID: 0}
-    - target: {fileID: 7832283948610905260, guid: 9921efa450512a340825b2ad17a9c260,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: DumbestWinLogic, Assembly-CSharp
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1215,26 +1210,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6361079408346927865, guid: 8da4b39d8dbefc057b9107da08b15ec3,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7080182177022942630, guid: 8da4b39d8dbefc057b9107da08b15ec3,
-        type: 3}
-      propertyPath: m_NavMeshData
-      value: 
-      objectReference: {fileID: 23800000, guid: 66cfa702008386044be2f3585bd175b8,
-        type: 2}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 2261688399687643968, guid: 8da4b39d8dbefc057b9107da08b15ec3, type: 3}
-    - {fileID: 8491719030533454087, guid: 8da4b39d8dbefc057b9107da08b15ec3, type: 3}
-    - {fileID: 7970230404803641925, guid: 8da4b39d8dbefc057b9107da08b15ec3, type: 3}
-    - {fileID: 8587886605375615214, guid: 8da4b39d8dbefc057b9107da08b15ec3, type: 3}
-    - {fileID: 1913587618430497975, guid: 8da4b39d8dbefc057b9107da08b15ec3, type: 3}
-    - {fileID: 366430153374392521, guid: 8da4b39d8dbefc057b9107da08b15ec3, type: 3}
-    - {fileID: 5916113727120168361, guid: 8da4b39d8dbefc057b9107da08b15ec3, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8da4b39d8dbefc057b9107da08b15ec3, type: 3}
