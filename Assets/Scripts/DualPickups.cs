@@ -9,7 +9,8 @@ public class DualPickups : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
-        { 
+        {
+            onPickup.Invoke();
             GameObject player = other.GetComponentInParent<PlayerMovement>().gameObject;
             player.GetComponent<PlayerMovement>().dual = true;
             player.GetComponent<PlayerMovement>().anim = null;
