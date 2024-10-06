@@ -9,6 +9,8 @@ public class BillboardLookAt : MonoBehaviour
     public int index = 0;
     public int spriteIndex = 0;
     public float spriteTime = 0.0f;
+    public bool attacking = false;
+    public SpriteInfo attackInfo;
     public List<SpriteInfo> spriteInfos;
     private Transform m_player;
     private Renderer m_rend;
@@ -18,7 +20,13 @@ public class BillboardLookAt : MonoBehaviour
         m_rend = GetComponent<Renderer>();
     }
 
-    // Update is called once per frame
+    public void Attack()
+    {
+        attacking = true;
+        spriteTime = 0.0f;
+        spriteIndex = 0;
+    }
+
     void Update()
     {
         transform.LookAt(m_player);
@@ -30,34 +38,55 @@ public class BillboardLookAt : MonoBehaviour
 
         bool right = Vector3.Dot(transform.parent.right, m_player.forward) >= 0.0f;
 
-        for(int i = 0; i < spriteInfos.Count; i++)
+        if (attacking)
         {
-            if (spriteInfos[i].min <= d && spriteInfos[i].max >= d)
-            {
-                if (index != i)
-                {
-                    spriteIndex = 0;
-                    spriteTime = 0.0f;
-                }
-
                 spriteTime += Time.deltaTime;
 
-                if (spriteInfos[i].delay < spriteTime)
+                if (attackInfo.delay < spriteTime)
                 {
                     spriteIndex++;
                     spriteTime = 0.0f;
-                    
-                    if (spriteIndex >= spriteInfos[i].textures.Count)
+
+                    if (spriteIndex >= attackInfo.textures.Count)
                     {
                         spriteIndex = 0;
+                        attacking = false;
                     }
                 }
 
-                index = i;
-                m_rend.material.mainTexture = spriteInfos[i].textures[spriteIndex];
+                m_rend.material.mainTexture = attackInfo.textures[spriteIndex];
+        }
+        else
+        {
+            for (int i = 0; i < spriteInfos.Count; i++)
+            {
+                if (spriteInfos[i].min <= d && spriteInfos[i].max >= d)
+                {
+                    if (index != i)
+                    {
+                        spriteIndex = 0;
+                        spriteTime = 0.0f;
+                    }
 
-                //m_rend.material.mainTextureScale = new Vector2 ((right) ? 1.0f : -1.0f, 1.0f);
-                return;
+                    spriteTime += Time.deltaTime;
+
+                    if (spriteInfos[i].delay < spriteTime)
+                    {
+                        spriteIndex++;
+                        spriteTime = 0.0f;
+
+                        if (spriteIndex >= spriteInfos[i].textures.Count)
+                        {
+                            spriteIndex = 0;
+                        }
+                    }
+
+                    index = i;
+                    m_rend.material.mainTexture = spriteInfos[i].textures[spriteIndex];
+
+                    //m_rend.material.mainTextureScale = new Vector2 ((right) ? 1.0f : -1.0f, 1.0f);
+                    return;
+                }
             }
         }
     }
