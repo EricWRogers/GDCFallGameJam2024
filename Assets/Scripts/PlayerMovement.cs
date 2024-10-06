@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float maxSpeed = 10f;
 
     private float rotationX = 0f;
-
+    public bool dual;
 
     private Camera cam;
     private Vector3 move;
@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
         cam = GetComponentInChildren<Camera>();
 
         Cursor.lockState = CursorLockMode.Locked;
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     
@@ -79,14 +79,28 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = rb.velocity.normalized * maxSpeed;
         }
-        if (rb.velocity.magnitude > 0.1 && !CheckAnim("GunShoot") && !CheckAnim("Reload"))
+        if (!dual)
         {
-            anim.Play("GunSway");
+            if (rb.velocity.magnitude > 0.1 && !CheckAnim("GunShoot") && !CheckAnim("Reload"))
+            {
+                anim.Play("GunSway");
+            }
+        }
+        else
+        {
+            if (rb.velocity.magnitude > 0.1 && !CheckAnim("DualGunShoot") && !CheckAnim("DualReload"))
+            {
+                anim.Play("DualGunSway");
+            }
         }
     }
 
     public bool CheckAnim(string name)
     {
+        if (anim == null)
+        {
+            anim = gameObject.GetComponentInChildren<Animator>();
+        }
         if (anim.GetCurrentAnimatorStateInfo(0).IsName(name))
         {
             return true;
