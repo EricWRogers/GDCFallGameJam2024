@@ -13,9 +13,10 @@ public class PhaseThreeState : SimpleState
     private float attackRange;
     public float buffer = 25f;
     private bool isAttacking;
-    public Timer timer;
+    public Timer batTimer;
+    public Timer spellTimer;
     public UnityEvent spawnBats;
-
+    public UnityEvent spawnSpell;
     public UnityEvent stopAttacking;
 
     public override void OnStart()
@@ -28,10 +29,14 @@ public class PhaseThreeState : SimpleState
             attackRange = vampireStateMachine.attackRange + buffer;
         }
 
-        timer.StartTimer(2, true);
+        batTimer.StartTimer(2, true);
         if (spawnBats == null)
         {
             spawnBats = new UnityEvent();
+        }
+        if (spawnSpell == null)
+        {
+            spawnSpell = new UnityEvent();
         }
     }
 
@@ -48,13 +53,14 @@ public class PhaseThreeState : SimpleState
                 {
                     isAttacking = true;
                     spawnBats.Invoke();
+                    spawnSpell.Invoke();
                 }
 
-                timer.autoRestart = false;
-                if (timer.timeLeft <= 0)
+                batTimer.autoRestart = false;
+                spellTimer.autoRestart = false;
+                if (batTimer.timeLeft <= 0 || spellTimer.timeLeft <= 0)
                 {
                     isAttacking = false;
-                    stateMachine.ChangeState(nameof(ChaseState));
                 }
             }
         }
