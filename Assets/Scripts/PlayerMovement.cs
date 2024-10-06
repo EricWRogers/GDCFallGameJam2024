@@ -34,11 +34,20 @@ public class PlayerMovement : MonoBehaviour
         Look();
     }
 
+    void LateUpdate()
+    {
+        Camera.main.transform.forward = transform.forward;
+        Camera.main.transform.position = transform.position;
+        Camera.main.transform.position += new Vector3(0.0f, 0.62f, 0.0f);
+    }
+
     private void Look()
     {
-        float mouseX = Input.GetAxis("Mouse X") * camSpeed;
+        float mouseX = Input.GetAxis("Horizontal") * camSpeed * Time.deltaTime;
+
+        Debug.Log(mouseX);
        
-        transform.Rotate(Vector3.up * mouseX);
+        transform.Rotate(Vector3.up * mouseX, Space.Self);
         
         //cam.transform.localRotation = Quaternion.Euler(rotationX, 0f, 0f);
     }
@@ -56,13 +65,16 @@ public class PlayerMovement : MonoBehaviour
         {
             currentSpeed = speed;
         }
-        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveX = 0.0f;Input.GetAxisRaw("Horizontal");
         float moveZ = Input.GetAxisRaw("Vertical");
 
         Vector3 move = transform.right * moveX + transform.forward * moveZ;
+
+        //Debug.Log(move);
+
         move.Normalize();
 
-        rb.AddForce(move * currentSpeed, ForceMode.Force);
+        rb.AddForce(move * currentSpeed * Time.deltaTime, ForceMode.Force);
 
 
         if (rb.velocity.magnitude > maxSpeed)
