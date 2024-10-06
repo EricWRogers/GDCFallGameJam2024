@@ -55,7 +55,6 @@ public class PhaseOneState : SimpleState
                 {
                     isAttacking = false;
                     stopAttacking.Invoke();
-                    stateMachine.ChangeState(nameof(ChaseState));
                 }
             }
         }

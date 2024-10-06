@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 396300}
   - component: {fileID: 396301}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpawnBat (2)
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -180,7 +180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 17247503}
   - component: {fileID: 17247504}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PhaseThreeBatTimer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -299,7 +299,7 @@ GameObject:
   m_Component:
   - component: {fileID: 94117529}
   - component: {fileID: 94117530}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpawnBat
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -346,7 +346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 198565351}
   - component: {fileID: 198565352}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpawnSpell
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
@@ -393,7 +393,7 @@ GameObject:
   m_Component:
   - component: {fileID: 230246796}
   - component: {fileID: 230246797}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpawnBat (2)
   m_TagString: Untagged
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
@@ -545,7 +545,7 @@ GameObject:
   m_Component:
   - component: {fileID: 318915481}
   - component: {fileID: 318915482}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpawnBat (1)
   m_TagString: Untagged
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
@@ -592,7 +592,7 @@ GameObject:
   m_Component:
   - component: {fileID: 366050955}
   - component: {fileID: 366050956}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpawnBat (1)
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -639,7 +639,7 @@ GameObject:
   m_Component:
   - component: {fileID: 500100698}
   - component: {fileID: 500100699}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpawnBat (4)
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -841,7 +841,7 @@ GameObject:
   m_Component:
   - component: {fileID: 630841268}
   - component: {fileID: 630841269}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpawnBat (3)
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -890,6 +890,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 4465342260756761279, guid: 0bd9465c9b6b84143ba448df4e32bc50,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7665207947484576150, guid: 0bd9465c9b6b84143ba448df4e32bc50,
         type: 3}
@@ -977,7 +982,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 758919022}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Phase2Summon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1014,7 +1019,7 @@ GameObject:
   m_Component:
   - component: {fileID: 793902728}
   - component: {fileID: 793902729}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpawnBat (2)
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -1061,7 +1066,7 @@ GameObject:
   m_Component:
   - component: {fileID: 837032948}
   - component: {fileID: 837032949}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpawnBat
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -1108,7 +1113,7 @@ GameObject:
   m_Component:
   - component: {fileID: 847466864}
   - component: {fileID: 847466865}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpawnBat (3)
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -1155,7 +1160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 939366781}
   - component: {fileID: 939366782}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PhaseThreeSpellTimer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1212,9 +1217,9 @@ GameObject:
   - component: {fileID: 945098966}
   - component: {fileID: 945098965}
   - component: {fileID: 945098964}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: VampireBoss
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1238,7 +1243,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.8
+  m_Radius: 1
   m_Height: 50
   m_Direction: 1
   m_Center: {x: 0, y: 19.32, z: 0}
@@ -1267,7 +1272,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 16
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &945098966
 MonoBehaviour:
@@ -1829,7 +1834,7 @@ GameObject:
   m_Component:
   - component: {fileID: 954533656}
   - component: {fileID: 954533657}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpawnBat (4)
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -1875,7 +1880,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 981793110}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Phase1Summon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1910,7 +1915,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1176746393}
   - component: {fileID: 1176746394}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpawnBat (5)
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -2075,7 +2080,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1384184258}
   - component: {fileID: 1384184259}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hurt Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2128,7 +2133,7 @@ GameObject:
   - component: {fileID: 1398691248}
   - component: {fileID: 1398691247}
   - component: {fileID: 1398691246}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2378,7 +2383,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1516977724}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Phase3Summon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2417,7 +2422,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1530039019}
   - component: {fileID: 1530039020}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpawnBat (1)
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -2601,7 +2606,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1845888462}
   - component: {fileID: 1845888461}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PhaseOneTimer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2652,7 +2657,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1980753855}
   - component: {fileID: 1980753856}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpawnBat
   m_TagString: Untagged
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
@@ -2699,7 +2704,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2113578726}
   - component: {fileID: 2113578725}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PhaseTwoTimer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
