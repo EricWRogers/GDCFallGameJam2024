@@ -265,6 +265,21 @@ MonoBehaviour:
     attack:
       m_PersistentCalls:
         m_Calls: []
+    lunge:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4772243874639624535}
+          m_TargetAssemblyTypeName: BillboardLookAt, Assembly-CSharp
+          m_MethodName: Attack
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     stopAttacking:
       m_PersistentCalls:
         m_Calls: []
@@ -594,6 +609,51 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 6982200371113700647, guid: 0bd9465c9b6b84143ba448df4e32bc50,
+        type: 3}
+      propertyPath: attackInfo.delay
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6982200371113700647, guid: 0bd9465c9b6b84143ba448df4e32bc50,
+        type: 3}
+      propertyPath: attackInfo.textures.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6982200371113700647, guid: 0bd9465c9b6b84143ba448df4e32bc50,
+        type: 3}
+      propertyPath: attackInfo.textures.Array.data[0]
+      value: 
+      objectReference: {fileID: 2800000, guid: 36b0cf01af319034891fe477919e2d48, type: 3}
+    - target: {fileID: 6982200371113700647, guid: 0bd9465c9b6b84143ba448df4e32bc50,
+        type: 3}
+      propertyPath: attackInfo.textures.Array.data[1]
+      value: 
+      objectReference: {fileID: 2800000, guid: 94efb9241fd36ea4aa5fe9e25bdea85f, type: 3}
+    - target: {fileID: 6982200371113700647, guid: 0bd9465c9b6b84143ba448df4e32bc50,
+        type: 3}
+      propertyPath: attackInfo.textures.Array.data[2]
+      value: 
+      objectReference: {fileID: 2800000, guid: a2a3fceacbc174e4a8a884cd3cdaa31e, type: 3}
+    - target: {fileID: 6982200371113700647, guid: 0bd9465c9b6b84143ba448df4e32bc50,
+        type: 3}
+      propertyPath: attackInfo.textures.Array.data[3]
+      value: 
+      objectReference: {fileID: 2800000, guid: 3dc7537b782e9754aa5834b82b57fe4b, type: 3}
+    - target: {fileID: 6982200371113700647, guid: 0bd9465c9b6b84143ba448df4e32bc50,
+        type: 3}
+      propertyPath: attackInfo.textures.Array.data[4]
+      value: 
+      objectReference: {fileID: 2800000, guid: 2f7ab69779803d447822c04ca8aee263, type: 3}
+    - target: {fileID: 6982200371113700647, guid: 0bd9465c9b6b84143ba448df4e32bc50,
+        type: 3}
+      propertyPath: attackInfo.textures.Array.data[5]
+      value: 
+      objectReference: {fileID: 2800000, guid: 4adf2b8eda1f4db4ca292faac993ace6, type: 3}
+    - target: {fileID: 6982200371113700647, guid: 0bd9465c9b6b84143ba448df4e32bc50,
+        type: 3}
+      propertyPath: attackInfo.textures.Array.data[6]
+      value: 
+      objectReference: {fileID: 2800000, guid: 186bdbc412c137f4bad94f6bd89a9a65, type: 3}
     - target: {fileID: 7665207947484576150, guid: 0bd9465c9b6b84143ba448df4e32bc50,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -664,6 +724,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bd9465c9b6b84143ba448df4e32bc50, type: 3}
+--- !u!114 &4772243874639624535 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6982200371113700647, guid: 0bd9465c9b6b84143ba448df4e32bc50,
+    type: 3}
+  m_PrefabInstance: {fileID: 2512912640485397616}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a17b9085fc076ad28a22ba93a0384e17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5242157803948813798 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7665207947484576150, guid: 0bd9465c9b6b84143ba448df4e32bc50,
