@@ -7,7 +7,6 @@ namespace SolarStudios
 {
     [RequireComponent(typeof(AudioSource))]
     [RequireComponent(typeof(AudioSource))]
-    [RequireComponent(typeof(Animator))]
 
     public abstract class GunBase : MonoBehaviour
     {
@@ -24,8 +23,8 @@ namespace SolarStudios
             Frustum
         }
 
-
-        private AudioSource gunFire;
+        [HideInInspector]
+        public AudioSource gunFire;
         private AudioSource reload;
         private ParticleSystem particalEffect;
         
@@ -60,7 +59,11 @@ namespace SolarStudios
         [Header("Doom Specific Shooting")]
         public float shootRange = 100f;         
         public LayerMask enemyLayer; 
-        public Camera playerCamera; 
+        public Camera playerCamera;
+
+
+        public string shootAnimName;
+        public string reloadAnimName;
 
         public void Start()
         {
@@ -126,7 +129,7 @@ namespace SolarStudios
             particalEffect.Stop();
             OnReload();
             reload.Play();
-            anim.Play("Reload");
+            anim.Play(reloadAnimName);
             currentAmmo = maxAmmo;
         }
 
@@ -136,22 +139,22 @@ namespace SolarStudios
             {
                 nextFireTime = Time.time + fireRate;
                 OnShoot();
-                anim.Play("GunShoot");
+                anim.Play(shootAnimName);
                 gunFire.Play();
                 particalEffect.Play();
                 currentAmmo--;
-                SpawnMethod(firePoint.transform, transform.localRotation);
+                SpawnMethod(firePoint.transform, transform.parent.localRotation);
             }
 
             if (fireMode == FireMode.RapidFire)
             {
                 nextFireTime = Time.time + fireRate;
                 OnShoot();
-                anim.Play("GunShoot");
+                anim.Play(shootAnimName);
                 gunFire.Play();
                 particalEffect.Play();
                 currentAmmo--;
-                SpawnMethod(firePoint.transform, transform.localRotation);
+                SpawnMethod(firePoint.transform, transform.parent.localRotation);
             }
         }
 
@@ -163,7 +166,7 @@ namespace SolarStudios
 
             if (Physics.Raycast(firePoint.transform.position, firePoint.transform.forward, out hit, raycastRange))
             {
-                if (hit.transform.CompareTag("Enemy"))
+                if (hit.transform.CompareTag(reloadAnimName))
                 {
                     nextFireTime = Time.time + fireRate;
                     OnRayHit();
@@ -191,7 +194,7 @@ namespace SolarStudios
         {
             OnShoot();
             gunFire.Play();
-            anim.Play("GunShoot");
+            anim.Play(shootAnimName);
             particalEffect.Play();
             Plane[] planes = GeometryUtility.CalculateFrustumPlanes(playerCamera);
 
@@ -225,6 +228,10 @@ namespace SolarStudios
 
         public bool CheckAnim(string name)
         {
+            if(anim == null)
+            {
+                anim = gameObject.GetComponentInChildren<Animator>();
+            }
             if(anim.GetCurrentAnimatorStateInfo(0).IsName(name))
             {
                 return true;
