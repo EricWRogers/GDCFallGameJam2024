@@ -6,23 +6,17 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
 /*
- * Plan for this Phase is to have targetting for the Guns and Move Towards the Player after spawning the Bats(Bullets)
+ * Plan for this Phase is to have targetting for the Bats(Bullets)
  */
 [System.Serializable]
 public class PhaseTwoState : SimpleState
 {
-    private NavMeshAgent agent;
     private float attackRange;
-    public float buffer = 5f;
+    public float buffer = 25f;
     private bool isAttacking;
     public Timer timer;
     public UnityEvent spawnBats;
     public UnityEvent stopAttacking;
-
-    public float lungeSpeed = 10.0f;
-    public bool isLunging = false;
-    public float lungeDuration = 2.0f;
-    private float lungeTimeElapsed = 0f;
 
     public override void OnStart()
     {
@@ -31,12 +25,6 @@ public class PhaseTwoState : SimpleState
 
         if (stateMachine is VampireStateMachine vampireStateMachine)
         {
-            agent = vampireStateMachine.GetComponent<NavMeshAgent>();
-
-            if (agent.isActiveAndEnabled && agent.isOnNavMesh)
-            {
-                agent.SetDestination(vampireStateMachine.transform.position);
-            }
             attackRange = vampireStateMachine.attackRange + buffer;
         }
 
@@ -62,16 +50,6 @@ public class PhaseTwoState : SimpleState
                     spawnBats.Invoke();
                 }
 
-                if (isLunging)
-                {
-                    LungeMove(dt);
-                }
-
-                if (timer.timeLeft <= 0 && !isLunging)
-                {
-                    LungeAttack();
-                }
-
                 timer.autoRestart = false;
                 if (timer.timeLeft <= 0)
                 {
@@ -85,31 +63,5 @@ public class PhaseTwoState : SimpleState
     public override void OnExit()
     {
         base.OnExit();
-    }
-
-
-
-    public void LungeAttack()
-    {
-        Debug.Log("The Vampired Lunged");
-
-        isLunging = true;
-        lungeTimeElapsed = 0f; 
-    }
-
-    public void LungeMove(float dt)
-    {
-        if (stateMachine is VampireStateMachine vampire)
-        {
-            Vector3 lungeDirection = vampire.transform.forward;
-            agent.Move(lungeDirection * lungeSpeed * dt);
-            lungeTimeElapsed += dt;
-
-            if (lungeTimeElapsed >= lungeDuration)
-            {
-                isLunging = false;
-                stateMachine.ChangeState(nameof(ChaseState));
-            }
-        }
     }
 }

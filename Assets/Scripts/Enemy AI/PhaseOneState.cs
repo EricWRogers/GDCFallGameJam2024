@@ -11,7 +11,7 @@ public class PhaseOneState : SimpleState
 {
     private NavMeshAgent agent;
     private float attackRange;
-    public float buffer = 5f;
+    public float buffer = 25f;
     private bool isAttacking;
     public Timer timer;
     public UnityEvent spawnBats;
@@ -24,12 +24,7 @@ public class PhaseOneState : SimpleState
 
         if (stateMachine is VampireStateMachine vampireStateMachine)
         {
-            agent = vampireStateMachine.GetComponent<NavMeshAgent>();
-
-            if (agent.isActiveAndEnabled && agent.isOnNavMesh)
-            {
-                agent.SetDestination(vampireStateMachine.transform.position);
-            }
+            // Calculate the adjusted attack range
             attackRange = vampireStateMachine.attackRange + buffer;
         }
 
