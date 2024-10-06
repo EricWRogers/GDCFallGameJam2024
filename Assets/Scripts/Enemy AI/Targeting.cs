@@ -5,6 +5,8 @@ using UnityEngine;
 public class Targeting : MonoBehaviour
 {
     private GameObject target;
+
+    public float trackingRange = 5f;
     void Start()
     {
         // If TargetingSystem is found call FindTarget
@@ -16,16 +18,24 @@ public class Targeting : MonoBehaviour
 
     void Update()
     {
-        if (target)
+        CheckDistance();
+    }
+
+    public void CheckDistance()
+    {
+        if (Vector3.Distance(target.transform.position, transform.position) > trackingRange)
         {
-            gameObject.transform.LookAt(target.transform);
-        }
-        else
-        {
-            target = gameObject.GetComponent<TargetingSystem>()?.FindTarget();
             if (target)
             {
                 gameObject.transform.LookAt(target.transform);
+            }
+            else
+            {
+                target = gameObject.GetComponent<TargetingSystem>()?.FindTarget();
+                if (target)
+                {
+                    gameObject.transform.LookAt(target.transform);
+                }
             }
         }
     }
