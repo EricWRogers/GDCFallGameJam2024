@@ -121,16 +121,16 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Liquid Drop_Frame_0
     originalName: 
-    pivot: {x: 0.46296296, y: -0.67241377}
+    pivot: {x: 0.43103448, y: -1.9074074}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 174
-      y: 118
-      width: 54
-      height: 116
-    spriteID: a1a2f3b89a0d5654aa461013e90c44b5
+      x: 118
+      y: 174
+      width: 116
+      height: 54
+    spriteID: ebc83912ce8bb83439c3c0e85f9550d2
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -138,19 +138,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 174, y: 118}
+    uvTransform: {x: 118, y: 174}
   - name: Liquid Drop_Frame_1
     originalName: 
-    pivot: {x: 0.4915254, y: -0.65833336}
+    pivot: {x: 0.40833336, y: -1.6779661}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 107
-      y: 118
-      width: 59
-      height: 120
-    spriteID: 12b115220799f3f4cb4b5fdfa6939ca8
+      x: 118
+      y: 107
+      width: 120
+      height: 59
+    spriteID: ac21152b79203da4289133448c7de087
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -158,19 +158,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 107, y: 118}
+    uvTransform: {x: 118, y: 107}
   - name: Liquid Drop_Frame_2
     originalName: 
-    pivot: {x: 0.55789477, y: -0.64000005}
+    pivot: {x: 0.384, y: -0.7894737}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 118
-      width: 95
-      height: 125
-    spriteID: 35323ad16c211544d859d2ebbf00635b
+      x: 118
+      y: 4
+      width: 125
+      height: 95
+    spriteID: 72e0d99a2bfdc514aa7968caa73381b5
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -178,19 +178,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 118}
+    uvTransform: {x: 118, y: 4}
   - name: Liquid Drop_Frame_3
     originalName: 
-    pivot: {x: 0.55200005, y: -0.7830189}
+    pivot: {x: 0.4245283, y: -0.47200003}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 125
-      height: 106
-    spriteID: 5367e1ba30a9cca408dcac2e555125af
+      width: 106
+      height: 125
+    spriteID: f0a428ff3cc995b4b84836ec7f993585
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -201,16 +201,16 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 4}
   - name: Liquid Drop_Frame_4
     originalName: 
-    pivot: {x: 0.54814816, y: -1.0625}
+    pivot: {x: 0.5375, y: -0.4}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 137
-      y: 4
-      width: 135
-      height: 80
-    spriteID: 05cba7298f1b89549893da3f8a50538c
+      x: 4
+      y: 137
+      width: 80
+      height: 135
+    spriteID: 699829488e98a9f41b60e015b16228b4
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -218,7 +218,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 137, y: 4}
+    uvTransform: {x: 4, y: 137}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -231,43 +231,43 @@ ScriptedImporter:
     - name: Liquid Drop_Frame_0
       frameIndex: 0
       cellRect:
-        x: 103
-        y: 78
-        width: 54
-        height: 116
-      spriteId: a1a2f3b89a0d5654aa461013e90c44b5
+        x: 78
+        y: 103
+        width: 116
+        height: 54
+      spriteId: ebc83912ce8bb83439c3c0e85f9550d2
     - name: Liquid Drop_Frame_1
       frameIndex: 1
       cellRect:
-        x: 99
-        y: 79
-        width: 59
-        height: 120
-      spriteId: 12b115220799f3f4cb4b5fdfa6939ca8
+        x: 79
+        y: 99
+        width: 120
+        height: 59
+      spriteId: ac21152b79203da4289133448c7de087
     - name: Liquid Drop_Frame_2
       frameIndex: 2
       cellRect:
-        x: 75
-        y: 80
-        width: 95
-        height: 125
-      spriteId: 35323ad16c211544d859d2ebbf00635b
+        x: 80
+        y: 75
+        width: 125
+        height: 95
+      spriteId: 72e0d99a2bfdc514aa7968caa73381b5
     - name: Liquid Drop_Frame_3
       frameIndex: 3
       cellRect:
-        x: 59
-        y: 83
-        width: 125
-        height: 106
-      spriteId: 5367e1ba30a9cca408dcac2e555125af
+        x: 83
+        y: 59
+        width: 106
+        height: 125
+      spriteId: f0a428ff3cc995b4b84836ec7f993585
     - name: Liquid Drop_Frame_4
       frameIndex: 4
       cellRect:
-        x: 54
-        y: 85
-        width: 135
-        height: 80
-      spriteId: 05cba7298f1b89549893da3f8a50538c
+        x: 85
+        y: 54
+        width: 80
+        height: 135
+      spriteId: 699829488e98a9f41b60e015b16228b4
     linkedCells: []
     parentIndex: -1
   platformSettings: []
