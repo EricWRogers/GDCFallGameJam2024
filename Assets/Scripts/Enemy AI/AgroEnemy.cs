@@ -24,7 +24,15 @@ public class AgroEnemy : MonoBehaviour
         {
             AgroEnemy[] argoZone = FindObjectsOfType<AgroEnemy>();
 
-            if (argoZone.Length <= 1)
+            int count = 0;
+
+            foreach(AgroEnemy ae in argoZone)
+            {
+                if (ae.on == true)
+                    count++;
+            }
+
+            if (count <= 1)
             {
                 AudioSource backgroundMusic = GameObject.Find("Background Music").GetComponent<AudioSource>();
                 AudioSource battleMusic = GameObject.Find("Battle Music").GetComponent<AudioSource>();
