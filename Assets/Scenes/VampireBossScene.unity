@@ -862,6 +862,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 199721895029395646, guid: 2cdc06430319e5335ae6349e97b206ab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 315516153590285403, guid: 2cdc06430319e5335ae6349e97b206ab,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -912,10 +917,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 370610937491421866, guid: 2cdc06430319e5335ae6349e97b206ab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 969780667406598928, guid: 2cdc06430319e5335ae6349e97b206ab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694585729267036248, guid: 2cdc06430319e5335ae6349e97b206ab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2498675665117618449, guid: 2cdc06430319e5335ae6349e97b206ab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3100396762756728812, guid: 2cdc06430319e5335ae6349e97b206ab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4808295293591309283, guid: 2cdc06430319e5335ae6349e97b206ab,
         type: 3}
       propertyPath: m_Name
       value: VampireBoss
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486362438911004850, guid: 2cdc06430319e5335ae6349e97b206ab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
