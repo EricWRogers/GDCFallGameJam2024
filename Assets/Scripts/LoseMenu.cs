@@ -34,11 +34,11 @@ public class LoseMenu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public void LoadMenu()
+    public void LoadMenu(string sceneName)
     {
-        Debug.Log("Loading Main Menu");
-        Time.timeScale = 1.0f;
-        SceneManager.LoadSceneAsync("Menu UI");
+       Debug.Log("Loading menu...");
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(sceneName);
     }
 
     public void QuitGame()

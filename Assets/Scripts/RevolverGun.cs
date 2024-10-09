@@ -39,6 +39,10 @@ public class RevolverGun : GunBase
     
     void Update()
     {
+        if(Time.timeScale == 0)
+        {
+            return;
+        }
         if (ShootButton())
             return;
         

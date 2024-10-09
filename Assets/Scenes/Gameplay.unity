@@ -430,6 +430,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62db1f9a7095e66488d3b030628dfc42, type: 3}
+--- !u!114 &468365165 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8051767573270699381, guid: 9921efa450512a340825b2ad17a9c260,
+    type: 3}
+  m_PrefabInstance: {fileID: 2139966954}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14713afa23fc61544b7a84a37fef74b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &477031500
 GameObject:
   m_ObjectHideFlags: 0
@@ -1615,9 +1627,54 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1326009698667865984, guid: 2cdc06430319e5335ae6349e97b206ab,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1326009698667865984, guid: 2cdc06430319e5335ae6349e97b206ab,
+        type: 3}
+      propertyPath: outOfHealth.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1326009698667865984, guid: 2cdc06430319e5335ae6349e97b206ab,
+        type: 3}
+      propertyPath: outOfHealth.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1326009698667865984, guid: 2cdc06430319e5335ae6349e97b206ab,
+        type: 3}
+      propertyPath: outOfHealth.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 468365165}
+    - target: {fileID: 1326009698667865984, guid: 2cdc06430319e5335ae6349e97b206ab,
+        type: 3}
+      propertyPath: outOfHealth.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1326009698667865984, guid: 2cdc06430319e5335ae6349e97b206ab,
+        type: 3}
+      propertyPath: outOfHealth.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Win
+      objectReference: {fileID: 0}
+    - target: {fileID: 1326009698667865984, guid: 2cdc06430319e5335ae6349e97b206ab,
+        type: 3}
+      propertyPath: outOfHealth.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: WinMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1326009698667865984, guid: 2cdc06430319e5335ae6349e97b206ab,
+        type: 3}
+      propertyPath: outOfHealth.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1694585729267036248, guid: 2cdc06430319e5335ae6349e97b206ab,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038212570532441745, guid: 2cdc06430319e5335ae6349e97b206ab,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2498675665117618449, guid: 2cdc06430319e5335ae6349e97b206ab,

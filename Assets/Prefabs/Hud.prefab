@@ -387,9 +387,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3310014384031124641}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: Resume
+      - m_Target: {fileID: 6473433117031550660}
+        m_TargetAssemblyTypeName: LoseMenu, Assembly-CSharp
+        m_MethodName: Retry
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2163,16 +2163,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3310014384031124641}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+      - m_Target: {fileID: 6473433117031550660}
+        m_TargetAssemblyTypeName: LoseMenu, Assembly-CSharp
         m_MethodName: LoadMenu
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Menu UI
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &5121423678963485423
@@ -2932,16 +2932,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3310014384031124641}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+      - m_Target: {fileID: 1778904826683373107}
+        m_TargetAssemblyTypeName: WinMenu, Assembly-CSharp
         m_MethodName: LoadMenu
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Menu UI
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &7435348190437027648
@@ -3279,13 +3279,13 @@ MonoBehaviour:
       - m_Target: {fileID: 3310014384031124641}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: LoadMenu
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Menu UI
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &7807155875349809799
@@ -3409,8 +3409,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DumbestWinLogic, Assembly-CSharp
+      - m_Target: {fileID: 1778904826683373107}
+        m_TargetAssemblyTypeName: WinMenu, Assembly-CSharp
         m_MethodName: Retry
         m_Mode: 1
         m_Arguments:
