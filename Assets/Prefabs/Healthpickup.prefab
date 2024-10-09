@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 487904455100958679}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AnimRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 3389699228831911472}
   - component: {fileID: 9182300694577335501}
   - component: {fileID: 8571032020615655422}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Healthpickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,6 +347,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HealthPickup
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: caaa17b0e0af5034fb88dc60fd999f56,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416272007918961125, guid: caaa17b0e0af5034fb88dc60fd999f56,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
