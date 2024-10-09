@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 116290631765547864}
   - component: {fileID: 2279248570086769972}
   m_Layer: 7
-  m_Name: Zombie hurt
+  m_Name: Wolf hurt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -567,7 +567,7 @@ GameObject:
   - component: {fileID: 6093296517144049192}
   - component: {fileID: 2280818338336081206}
   m_Layer: 7
-  m_Name: Zombie Swipe
+  m_Name: Wolf Swipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
