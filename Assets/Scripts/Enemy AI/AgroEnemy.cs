@@ -71,6 +71,11 @@ public class AgroEnemy : MonoBehaviour
                     var werewolfStateMachine = enemy.GetComponent<WerewolfStateMachine>();
                     werewolfStateMachine.enabled = true;
                 }
+                else if (enemy.GetComponent<VampireStateMachine>() != null)
+                {
+                    var vampireStateMachine = enemy.GetComponent<VampireStateMachine>();
+                    vampireStateMachine.enabled = true;
+                }
             }
         }
     }
