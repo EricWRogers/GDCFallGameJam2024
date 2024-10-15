@@ -44,8 +44,11 @@ public class PlayerMovement : MonoBehaviour
     private void Look()
     {
         float mouseX = Input.GetAxis("Horizontal") * camSpeed * Time.deltaTime;
-       
-        transform.Rotate(Vector3.up * mouseX, Space.Self);
+
+        if(!Input.GetKey(KeyCode.LeftAlt))
+        {
+            transform.Rotate(Vector3.up * mouseX, Space.Self);
+        }
         
         //cam.transform.localRotation = Quaternion.Euler(rotationX, 0f, 0f);
     }
@@ -55,6 +58,8 @@ public class PlayerMovement : MonoBehaviour
     {
 
         float currentSpeed;
+
+        float moveX;
         if (Input.GetKey(KeyCode.LeftShift))
         {
             currentSpeed = sprintSpeed;
@@ -63,7 +68,14 @@ public class PlayerMovement : MonoBehaviour
         {
             currentSpeed = speed;
         }
-        float moveX = 0.0f;Input.GetAxisRaw("Horizontal");
+        if(Input.GetKey(KeyCode.LeftAlt))
+        {
+            moveX = Input.GetAxisRaw("Horizontal");    
+        }
+        else
+        {
+            moveX = 0.0f;Input.GetAxisRaw("Horizontal");
+        }
         float moveZ = Input.GetAxisRaw("Vertical");
 
         Vector3 move = transform.right * moveX + transform.forward * moveZ;
