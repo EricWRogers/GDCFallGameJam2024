@@ -179,6 +179,37 @@ MonoBehaviour:
   timer: 5
   bat: {fileID: 6242562521412343179, guid: c2bf3cd2db3013b40bb24be25d7f48a1, type: 3}
   spawnPoint: {fileID: 793270624573933046}
+--- !u!1 &1557442674534916411
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5291298547682629406}
+  m_Layer: 7
+  m_Name: Blood Location
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5291298547682629406
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557442674534916411}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.0625, z: -0.6}
+  m_LocalScale: {x: 0.0625, y: 0.0625, z: 0.0625}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8453652153994904932}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1679071138665690737
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,6 +593,7 @@ GameObject:
   - component: {fileID: 8311758001247585729}
   - component: {fileID: 8891357744387069614}
   - component: {fileID: 3216309501883603371}
+  - component: {fileID: 8318129237219154457}
   m_Layer: 7
   m_Name: VampireBoss
   m_TagString: Enemy
@@ -649,9 +681,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8318129237219154457}
+        m_TargetAssemblyTypeName: SpawnGiblet, Assembly-CSharp
+        m_MethodName: BleedingOut
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   outOfHealth:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 8318129237219154457}
+        m_TargetAssemblyTypeName: SpawnGiblet, Assembly-CSharp
+        m_MethodName: Died
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1326009698667865984}
         m_TargetAssemblyTypeName: SuperPupSystems.Helper.Health, Assembly-CSharp
         m_MethodName: DestroyGameObject
@@ -1045,6 +1101,23 @@ CapsuleCollider:
   m_Height: 50
   m_Direction: 1
   m_Center: {x: 0, y: 12, z: 0}
+--- !u!114 &8318129237219154457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4808295293591309283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fb6a93183d607e538c4f5a921a8dc58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blood: {fileID: 6431972594270296006, guid: cc09b19ebe4fb5e41a47b3252ad0a2a7, type: 3}
+  deathBlood: {fileID: 8028073745049403027, guid: 5fea533b800410ae0be462d1a8ade25d,
+    type: 3}
+  bleedLocation: {fileID: 5291298547682629406}
+  dieLocation: {fileID: 6980630999141341089}
 --- !u!1 &5208787985564161018
 GameObject:
   m_ObjectHideFlags: 0
@@ -1288,6 +1361,37 @@ MonoBehaviour:
   autoRestart: 0
   countDownTime: 1
   timeScale: 1
+--- !u!1 &5780648959241301788
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6980630999141341089}
+  m_Layer: 7
+  m_Name: DieLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6980630999141341089
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5780648959241301788}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.0625, z: 0}
+  m_LocalScale: {x: 0.0625, y: 0.0625, z: 0.0625}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8453652153994904932}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5805294657226312615
 GameObject:
   m_ObjectHideFlags: 0
@@ -1869,7 +1973,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7665207947484576150, guid: 0bd9465c9b6b84143ba448df4e32bc50,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5291298547682629406}
+    - targetCorrespondingSourceObject: {fileID: 7665207947484576150, guid: 0bd9465c9b6b84143ba448df4e32bc50,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6980630999141341089}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bd9465c9b6b84143ba448df4e32bc50, type: 3}
 --- !u!23 &5347598267575670787 stripped
