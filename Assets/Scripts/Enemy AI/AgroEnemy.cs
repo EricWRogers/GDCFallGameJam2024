@@ -61,6 +61,8 @@ public class AgroEnemy : MonoBehaviour
 
             foreach (GameObject enemy in enemiesInZone)
             {
+                if (enemy == null) continue;  // Skip if the enemy has been destroyed
+
                 if (enemy.GetComponent<ZombieStateMachine>() != null)
                 {
                     var zombieStateMachine = enemy.GetComponent<ZombieStateMachine>();
