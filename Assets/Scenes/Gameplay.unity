@@ -4829,6 +4829,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3360002141807828892, guid: 9921efa450512a340825b2ad17a9c260,
+        type: 3}
+      propertyPath: maxAmmo
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3360002141807828892, guid: 9921efa450512a340825b2ad17a9c260,
+        type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3360002141807828892, guid: 9921efa450512a340825b2ad17a9c260,
+        type: 3}
+      propertyPath: currentAmmo
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 5110651600338411129, guid: 9921efa450512a340825b2ad17a9c260,
         type: 3}
       propertyPath: m_RenderMode
