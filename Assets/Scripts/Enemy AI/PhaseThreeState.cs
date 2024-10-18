@@ -13,6 +13,7 @@ public class PhaseThreeState : SimpleState
     private float attackRange;
     public float buffer = 25f;
     private bool isAttacking;
+    public GameObject summon;
     public Timer batTimer;
     public Timer spellTimer;
     public UnityEvent spawnBats;
@@ -52,6 +53,7 @@ public class PhaseThreeState : SimpleState
                 if (!isAttacking)
                 {
                     isAttacking = true;
+                    summon.SetActive(true);
                     spawnBats.Invoke();
                     spawnSpell.Invoke();
                 }
