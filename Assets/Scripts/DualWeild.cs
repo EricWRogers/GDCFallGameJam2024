@@ -29,12 +29,7 @@ public class DualWeild : GunBase
     public override void OnShoot()
     {
        
-        if(currentAmmo !=0)
-        {
-            Instantiate(bulletPrefab, secondFirePoint.transform.position, transform.parent.localRotation);
-            currentAmmo--;
-            
-        }
+        
         
         
         OnShootEvent.Invoke();
@@ -62,5 +57,15 @@ public class DualWeild : GunBase
     {
         secondEffect.Play();
         gunFire.Play();
+    }
+
+    public void DualShoot()
+    {
+        if (currentAmmo != 0)
+        {
+            Instantiate(bulletPrefab, secondFirePoint.transform.position, transform.parent.localRotation);
+            currentAmmo--;
+
+        }
     }
 }
