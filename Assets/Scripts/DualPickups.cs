@@ -15,7 +15,11 @@ public class DualPickups : MonoBehaviour
             player.GetComponent<PlayerMovement>().dual = true;
             player.GetComponent<PlayerMovement>().anim = null;
 
-            player.GetComponentInChildren<RevolverGun>().gameObject.SetActive(false);
+            if(player.GetComponentInChildren<RevolverGun>())
+            {
+                player.GetComponentInChildren<RevolverGun>().gameObject.SetActive(false);
+            }
+           
             //player.GetComponentInChildren<DualWeild>().gameObject.SetActive(true);
             Destroy(gameObject, 2);
         }
