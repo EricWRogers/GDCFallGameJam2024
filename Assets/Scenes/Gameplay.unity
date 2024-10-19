@@ -49041,7 +49041,7 @@ PrefabInstance:
     - target: {fileID: 4809737536351845440, guid: cf6e5a83d2c984a49aff2a8c7e027109,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 35.76
+      value: 36.06
       objectReference: {fileID: 0}
     - target: {fileID: 4809737536351845440, guid: cf6e5a83d2c984a49aff2a8c7e027109,
         type: 3}
@@ -76501,7 +76501,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2021747396}
   - component: {fileID: 2021747395}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Anti cheat cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
