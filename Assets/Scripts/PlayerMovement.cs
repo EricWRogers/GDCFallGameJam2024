@@ -6,10 +6,15 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody rb;
+    public float gravity;
     public float speed;
     public float sprintSpeed;
     public float camSpeed;
     public float maxSpeed = 10f;
+
+    private float currentRotationSpeed = 0f;  // Track the current rotation speed
+    public float accelerationRate = 5f;       // Rate at which the rotation accelerates
+    public float maxRotationSpeed = 100f;  
 
     private float rotationX = 0f;
     public bool dual;
@@ -43,14 +48,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void Look()
     {
-        float mouseX = Input.GetAxis("Horizontal") * camSpeed * Time.deltaTime;
+        float targetRotationSpeed = Input.GetAxis("Horizontal") * camSpeed * Time.deltaTime;
+
+        // Acceleration so it is not so fast
+        currentRotationSpeed = Mathf.Lerp(currentRotationSpeed, targetRotationSpeed, accelerationRate * Time.deltaTime);
 
         if(!Input.GetKey(KeyCode.LeftAlt))
         {
-            transform.Rotate(Vector3.up * mouseX, Space.Self);
+            transform.Rotate(Vector3.up * currentRotationSpeed, Space.Self);
         }
-        
-        //cam.transform.localRotation = Quaternion.Euler(rotationX, 0f, 0f);
     }
     
 
@@ -91,6 +97,12 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = rb.velocity.normalized * maxSpeed;
         }
+
+        if(!IsGrounded())
+        {
+            rb.AddForce(Vector3.down * gravity * Time.deltaTime);
+        }
+
         if (!dual)
         {
             if (rb.velocity.magnitude > 0.1 && !CheckAnim("GunShoot") && !CheckAnim("Reload"))
@@ -122,5 +134,10 @@ public class PlayerMovement : MonoBehaviour
         {
             return false;
         }
+    }
+
+    private bool IsGrounded()
+    {
+        return Physics.Raycast(transform.position, Vector3.down, 1.1f);
     }
 }

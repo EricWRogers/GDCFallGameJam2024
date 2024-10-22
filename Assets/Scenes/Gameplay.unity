@@ -79630,8 +79630,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7358947254498742579, guid: 9921efa450512a340825b2ad17a9c260,
         type: 3}
+      propertyPath: speed
+      value: 7000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7358947254498742579, guid: 9921efa450512a340825b2ad17a9c260,
+        type: 3}
+      propertyPath: gravity
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7358947254498742579, guid: 9921efa450512a340825b2ad17a9c260,
+        type: 3}
+      propertyPath: camSpeed
+      value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 7358947254498742579, guid: 9921efa450512a340825b2ad17a9c260,
+        type: 3}
       propertyPath: sprintSpeed
-      value: 12000
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7358947254498742579, guid: 9921efa450512a340825b2ad17a9c260,
+        type: 3}
+      propertyPath: maxRotationSpeed
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 7832283948610905260, guid: 9921efa450512a340825b2ad17a9c260,
         type: 3}
