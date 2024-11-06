@@ -7,8 +7,8 @@ using SuperPupSystems.Helper;
 public class VampireStateMachine : SimpleStateMachine
 {
     public PhaseOneState phaseOne;
-    //public PhaseTwoState phaseTwo;
-    public PhaseThreeState phaseThree;
+    public PhaseThreeState phaseTwo;
+    public MoveAroundState move;
 
     [HideInInspector]
     public bool isAlive = false;
@@ -25,8 +25,8 @@ public class VampireStateMachine : SimpleStateMachine
     void Awake()
     {
         states.Add(phaseOne);
-        //states.Add(phaseTwo);
-        states.Add(phaseThree);
+        states.Add(phaseTwo);
+        states.Add(move);
 
         foreach (SimpleState s in states)
         {
@@ -63,15 +63,17 @@ public class VampireStateMachine : SimpleStateMachine
             ChangeState(nameof(PhaseThreeState));
         }
 
+        if(move.CanEnterMoveState() && healthPercentage <= 75f)
+        {
+            ChangeState(nameof(MoveAroundState));
+        }
+
 
     }
 
     public float GetHealthPercentage()
     {
-        Debug.Log("Current Health: " + enemyHealth.currentHealth);
-        Debug.Log("Max Health: " + enemyHealth.maxHealth);
         float healthpercent = ((float)enemyHealth.currentHealth / (float)enemyHealth.maxHealth) * 100f;
-        Debug.Log("Health percent: " + healthpercent);
         return healthpercent;
     }
 }
