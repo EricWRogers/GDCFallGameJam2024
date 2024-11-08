@@ -78174,12 +78174,12 @@ PrefabInstance:
     - target: {fileID: 534414951233992763, guid: 9921efa450512a340825b2ad17a9c260,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 534414951233992763, guid: 9921efa450512a340825b2ad17a9c260,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1608364975878559451, guid: 9921efa450512a340825b2ad17a9c260,
         type: 3}
@@ -78225,6 +78225,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581638604191980036, guid: 9921efa450512a340825b2ad17a9c260,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2953231765664939145, guid: 9921efa450512a340825b2ad17a9c260,
         type: 3}
@@ -80174,12 +80179,12 @@ PrefabInstance:
     - target: {fileID: 534414951233992763, guid: 9921efa450512a340825b2ad17a9c260,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 534414951233992763, guid: 9921efa450512a340825b2ad17a9c260,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1608364975878559451, guid: 9921efa450512a340825b2ad17a9c260,
         type: 3}
@@ -80229,7 +80234,7 @@ PrefabInstance:
     - target: {fileID: 2581638604191980036, guid: 9921efa450512a340825b2ad17a9c260,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2953231765664939145, guid: 9921efa450512a340825b2ad17a9c260,
         type: 3}
@@ -80399,6 +80404,11 @@ PrefabInstance:
     - target: {fileID: 8922775405601680956, guid: 9921efa450512a340825b2ad17a9c260,
         type: 3}
       propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9005367187791422264, guid: 9921efa450512a340825b2ad17a9c260,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
