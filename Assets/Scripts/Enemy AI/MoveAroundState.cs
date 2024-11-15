@@ -10,6 +10,7 @@ public class MoveAroundState : SimpleState
     public Transform spotOne;
     public Transform spotTwo;
     public Transform spotThree;
+    public float healthPercent;
     public float waitDuration = 2.0f;  // Duration of state
     private float waitTimer;
     public float waitCooldown = 5.0f;  // Time before AI can move again
@@ -19,10 +20,15 @@ public class MoveAroundState : SimpleState
     public override void OnStart()
     {
         base.OnStart();
+        Debug.Log("Entering Move State");
 
         if (stateMachine is VampireStateMachine vampireStateMachine)
         {
             agent = vampireStateMachine.GetComponent<NavMeshAgent>();
+
+            agent.enabled = true;
+
+            healthPercent = vampireStateMachine.GetHealthPercentage();
 
             // Check if agent is active and on the NavMesh before setting destination
             if (agent.isActiveAndEnabled && agent.isOnNavMesh)
@@ -31,6 +37,8 @@ public class MoveAroundState : SimpleState
                 agent.SetDestination(newSpot.position);
             }
         }
+
+        waitTimer = 10.0f;
     }
 
     private Transform GetRandomSpotExcludingCurrent(Vector3 currentPosition)
@@ -52,15 +60,25 @@ public class MoveAroundState : SimpleState
         {
             waitTimer -= dt;
         }
-        if (waitTimer <= 0)
+        if (waitTimer <= 0 && healthPercent >= 51.0f)
         {
             stateMachine.ChangeState(nameof(PhaseOneState));
+        }
+        else if(waitTimer <= 0 && healthPercent <= 50.0f)
+        {
+            stateMachine.ChangeState(nameof(PhaseThreeState));
         }
     }
 
     public override void OnExit()
     {
         base.OnExit();
+        if (stateMachine is VampireStateMachine vampireStateMachine)
+        {
+            agent = vampireStateMachine.GetComponent<NavMeshAgent>();
+
+            agent.enabled = false;
+        }
         cooldownTimer = waitCooldown;
     }
 

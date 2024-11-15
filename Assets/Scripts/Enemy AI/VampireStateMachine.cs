@@ -63,9 +63,12 @@ public class VampireStateMachine : SimpleStateMachine
             ChangeState(nameof(PhaseThreeState));
         }
 
-        if(move.CanEnterMoveState() && healthPercentage <= 75f)
+        if(healthPercentage <= 75f)
         {
-            ChangeState(nameof(MoveAroundState));
+            if(move.CanEnterMoveState())
+            {
+                ChangeState(nameof(MoveAroundState));
+            }
         }
 
 
