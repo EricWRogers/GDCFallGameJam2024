@@ -54069,6 +54069,16 @@ PrefabInstance:
       objectReference: {fileID: 658191888}
     - target: {fileID: 2038212570532441745, guid: 2cdc06430319e5335ae6349e97b206ab,
         type: 3}
+      propertyPath: move.waitCooldown
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038212570532441745, guid: 2cdc06430319e5335ae6349e97b206ab,
+        type: 3}
+      propertyPath: move.waitDuration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038212570532441745, guid: 2cdc06430319e5335ae6349e97b206ab,
+        type: 3}
       propertyPath: phaseThree.summon
       value: 
       objectReference: {fileID: 372406007}
