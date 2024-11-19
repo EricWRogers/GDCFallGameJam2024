@@ -6,7 +6,6 @@ using System.Collections.Generic;
 [System.Serializable]
 public class MoveAroundState : SimpleState
 {
-    private NavMeshAgent agent;
     public Transform spotOne;
     public Transform spotTwo;
     public Transform spotThree;
@@ -24,21 +23,12 @@ public class MoveAroundState : SimpleState
 
         if (stateMachine is VampireStateMachine vampireStateMachine)
         {
-            agent = vampireStateMachine.GetComponent<NavMeshAgent>();
-
-            agent.enabled = true;
-
             healthPercent = vampireStateMachine.GetHealthPercentage();
-
-            // Check if agent is active and on the NavMesh before setting destination
-            if (agent.isActiveAndEnabled && agent.isOnNavMesh)
-            {
-                Transform newSpot = GetRandomSpotExcludingCurrent(vampireStateMachine.transform.position);
-                agent.SetDestination(newSpot.position);
-            }
+            Transform newSpot = GetRandomSpotExcludingCurrent(vampireStateMachine.transform.position);
+            vampireStateMachine.transform.position = newSpot.position;
         }
 
-        waitTimer = 10.0f;
+        waitTimer = 1.0f;
     }
 
     private Transform GetRandomSpotExcludingCurrent(Vector3 currentPosition)
@@ -46,7 +36,7 @@ public class MoveAroundState : SimpleState
         List<Transform> possibleSpots = new List<Transform> { spotOne, spotTwo, spotThree };
 
         // Remove the current position from the list
-        possibleSpots.RemoveAll(spot => Vector3.Distance(spot.position, currentPosition) < 0.1f);
+        possibleSpots.RemoveAll(spot => Vector3.Distance(spot.position, currentPosition) < 1.0f);
 
         // Select a random spot from the remaining options
         return possibleSpots[Random.Range(0, possibleSpots.Count)];
@@ -73,12 +63,6 @@ public class MoveAroundState : SimpleState
     public override void OnExit()
     {
         base.OnExit();
-        if (stateMachine is VampireStateMachine vampireStateMachine)
-        {
-            agent = vampireStateMachine.GetComponent<NavMeshAgent>();
-
-            agent.enabled = false;
-        }
         cooldownTimer = waitCooldown;
     }
 

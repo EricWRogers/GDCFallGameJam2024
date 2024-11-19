@@ -56,6 +56,7 @@ public class VampireStateMachine : SimpleStateMachine
         }
         
         float healthPercentage = GetHealthPercentage();
+        move.UpdateCooldown(Time.deltaTime);
 
         // Check to enter Phase 2 if health is between 33% and 66%
         if (healthPercentage <= 50f)
@@ -63,12 +64,9 @@ public class VampireStateMachine : SimpleStateMachine
             ChangeState(nameof(PhaseThreeState));
         }
 
-        if(healthPercentage <= 75f)
+        if(healthPercentage <= 75f && move.CanEnterMoveState())
         {
-            if(move.CanEnterMoveState())
-            {
-                ChangeState(nameof(MoveAroundState));
-            }
+            ChangeState(nameof(MoveAroundState));
         }
 
 
