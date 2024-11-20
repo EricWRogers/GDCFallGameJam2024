@@ -117,8 +117,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  speed: 5
-  lifeTime: 10
+  speed: 50
+  lifeTime: 15
   destroyOnImpact: 1
   hitTarget:
     m_PersistentCalls:

@@ -12,12 +12,13 @@ public class ScoreManager : MonoBehaviour
     public bool finished = false;
     public int points = 0;
     public int multiplier = 1;
-    private int score = 0;
-    private float timer = 0;
+    public float timer = 0;
 
     // Enemy Tracking
     private List<GameObject> zombies = new List<GameObject>();
     private List<GameObject> werewolves = new List<GameObject>();
+    private int initialZombieCount = 0;
+    private int initialWerewolfCount = 0;
 
     private int zombiesKilled = 0;
     private int werewolvesKilled = 0;
@@ -41,6 +42,8 @@ public class ScoreManager : MonoBehaviour
     {
         zombies.AddRange(GameObject.FindGameObjectsWithTag("Zombie"));
         werewolves.AddRange(GameObject.FindGameObjectsWithTag("Werewolf"));
+        initialZombieCount = zombies.Count;
+        initialWerewolfCount = werewolves.Count;
     }
 
     void Update()
@@ -51,20 +54,18 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    // Stop Timer
-    public void StopTimer()
-    {
-        finished = true;
-    }
-
     // Display Text
     public void DisplayText()
     {
-        RemainingEnemies();
+        DeadEnemies();
         CalculateScore();
 
-        amountZombieText.text = zombiesKilled + " / " + zombies.Count;
-        amountWerewolfText.text = werewolvesKilled + " / " + werewolves.Count;
+        // correct death count
+        int correctZombieDeath = initialZombieCount - zombiesKilled;
+        int correctWerewolfDeath = initialWerewolfCount - werewolvesKilled;
+
+        amountZombieText.text = correctZombieDeath + " / " + initialZombieCount;
+        amountWerewolfText.text = correctWerewolfDeath + " / " + initialWerewolfCount;
         bossText.text = "1 / 1";
 
         // Get the right time look
@@ -88,15 +89,18 @@ public class ScoreManager : MonoBehaviour
     // Calculates Score at the end
     public void CalculateScore()
     {
-        float scoreTotal = (points * multiplier) / Mathf.Max(timer, 1);
-        score = Mathf.RoundToInt(scoreTotal);
-        scoreText.text = "Score: " + score;
+        finished = true;
+        
+        float timeInMinutes = timer / 60f;
+        float score = (points * multiplier) / Mathf.Max(timeInMinutes, 0.01f);
+
+        scoreText.text = "Score: " + (int)score;
     }
 
     // Calcuates the dead (removed from list) amount of Enemies in the game
-    public void RemainingEnemies()
+    public void DeadEnemies()
     {
-        zombiesKilled = zombies.Count - zombies.RemoveAll(z => z == null);
-        werewolvesKilled = werewolves.Count - werewolves.RemoveAll(w => w == null);
+        zombiesKilled = initialZombieCount - zombies.RemoveAll(z => z == null);
+        werewolvesKilled = initialWerewolfCount - werewolves.RemoveAll(w => w == null);
     }
 }
