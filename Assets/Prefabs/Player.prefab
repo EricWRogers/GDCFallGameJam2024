@@ -368,10 +368,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e8369d9ba1d294468bc150d070114d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gravity: 0
   speed: 5000
   sprintSpeed: 6000
   camSpeed: 200
   maxSpeed: 6000
+  accelerationRate: 5
+  maxRotationSpeed: 100
   dual: 0
   anim: {fileID: 0}
 --- !u!114 &6200437374159932119
@@ -11434,6 +11437,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277690108255304513, guid: 7305339b22770d54f8a5467e6bc00a22,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 64.6
       objectReference: {fileID: 0}
     - target: {fileID: 4457832614209467687, guid: 7305339b22770d54f8a5467e6bc00a22,
         type: 3}

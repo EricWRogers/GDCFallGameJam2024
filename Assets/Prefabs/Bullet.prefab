@@ -140,3 +140,5 @@ MonoBehaviour:
     m_Bits: 128
   tags:
   - Enemy
+  - Zombie
+  - Werewolf
