@@ -34,11 +34,25 @@ public class AgroEnemy : MonoBehaviour
 
             if (count <= 1)
             {
-                AudioSource backgroundMusic = GameObject.Find("Background Music").GetComponent<AudioSource>();
-                AudioSource battleMusic = GameObject.Find("Battle Music").GetComponent<AudioSource>();
+                GameObject backgroundMusicObject = GameObject.Find("Background Music");
+                GameObject battleMusicObject = GameObject.Find("Battle Music");
 
-                backgroundMusic.volume = 1.0f;
-                battleMusic.Stop();
+                // Check if both music objects exist before accessing them
+                if (backgroundMusicObject != null && battleMusicObject != null)
+                {
+                    AudioSource backgroundMusic = backgroundMusicObject.GetComponent<AudioSource>();
+                    AudioSource battleMusic = battleMusicObject.GetComponent<AudioSource>();
+
+                    if (backgroundMusic != null)
+                    {
+                        backgroundMusic.volume = 1.0f;
+                    }
+                    
+                    if (battleMusic != null)
+                    {
+                        battleMusic.Stop();
+                    }
+                }              
             }
 
             Destroy(this);
@@ -50,13 +64,21 @@ public class AgroEnemy : MonoBehaviour
         if (other.CompareTag("Player") && on == false)
         {
             on = true;
-            AudioSource backgroundMusic = GameObject.Find("Background Music").GetComponent<AudioSource>();
-            AudioSource battleMusic = GameObject.Find("Battle Music").GetComponent<AudioSource>();
+            GameObject backgroundMusicObject = GameObject.Find("Background Music");
+            GameObject battleMusicObject = GameObject.Find("Battle Music");
 
-            if (battleMusic.isPlaying == false)
+            if (backgroundMusicObject != null && battleMusicObject != null)
             {
-                backgroundMusic.volume = 0.2f;
-                battleMusic.Play();
+                AudioSource backgroundMusic = backgroundMusicObject.GetComponent<AudioSource>();
+                AudioSource battleMusic = battleMusicObject.GetComponent<AudioSource>();
+
+                if (battleMusic != null && !battleMusic.isPlaying)
+                {
+                    if (backgroundMusic != null)
+                        backgroundMusic.volume = 0.2f;
+
+                    battleMusic.Play();
+                }
             }
 
             foreach (GameObject enemy in enemiesInZone)

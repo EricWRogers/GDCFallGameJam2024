@@ -80857,7 +80857,7 @@ PrefabInstance:
     - target: {fileID: 7358947254498742579, guid: 9921efa450512a340825b2ad17a9c260,
         type: 3}
       propertyPath: camSpeed
-      value: 125
+      value: 105
       objectReference: {fileID: 0}
     - target: {fileID: 7358947254498742579, guid: 9921efa450512a340825b2ad17a9c260,
         type: 3}
@@ -80867,7 +80867,7 @@ PrefabInstance:
     - target: {fileID: 7358947254498742579, guid: 9921efa450512a340825b2ad17a9c260,
         type: 3}
       propertyPath: accelerationRate
-      value: 2.5
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 7358947254498742579, guid: 9921efa450512a340825b2ad17a9c260,
         type: 3}
