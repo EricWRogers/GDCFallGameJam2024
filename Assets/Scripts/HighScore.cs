@@ -17,6 +17,8 @@ public class HighScore : MonoBehaviour
 
         entryTemplate.gameObject.SetActive(false);
 
+        //AddHighScoreEntry(10000, "DDD");
+
         // Check if "HighScore" exists in PlayerPrefs
         if (PlayerPrefs.HasKey("HighScore"))
         {
@@ -31,7 +33,7 @@ public class HighScore : MonoBehaviour
             {
                 highScoreEntryList = new List<HighScoreEntry>();
             }
-        }
+        }/*
         else
         {
             // Create default high scores
@@ -49,7 +51,7 @@ public class HighScore : MonoBehaviour
             string json = JsonUtility.ToJson(defaultHighScores);
             PlayerPrefs.SetString("HighScore", json);
             PlayerPrefs.Save();
-        }
+        }*/
 
         // Sort the high score list
         highScoreEntryList.Sort((entry1, entry2) => entry2.score.CompareTo(entry1.score));
@@ -61,6 +63,20 @@ public class HighScore : MonoBehaviour
         }
 
         Debug.Log(PlayerPrefs.GetString("HighScore"));
+    }
+
+    public void AddHighScoreEntry(int score, string name)
+    {
+        HighScoreEntry highScoreEntry = new HighScoreEntry {score = score, name = name};
+
+        string jsonString = PlayerPrefs.GetString("HighScore");
+        HighScoresJson highscores = JsonUtility.FromJson<HighScoresJson>(jsonString);
+
+        highscores.highScoreEntryList.Add(highScoreEntry);
+
+        string json = JsonUtility.ToJson(highscores);
+        PlayerPrefs.SetString("HighScore", json);
+        PlayerPrefs.Save();
     }
 
     private void CreateHighScoreEntryTransform(HighScoreEntry highScoreEntry, Transform container, List<Transform> transformList)
