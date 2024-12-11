@@ -5,61 +5,70 @@ using TMPro;
 
 public class HighScore : MonoBehaviour
 {
-    private Transform entryContainer;
-    private Transform entryTemplate;
+    public static HighScore instance { get; private set; }
+
+    public Transform parentObject;
+    public Transform entryContainer;
+    public Transform entryTemplate;
     private List<HighScoreEntry> highScoreEntryList;
     private List<Transform> highScoreEntryTransformList;
 
     void Awake()
     {
-        entryContainer = transform.Find("HighScoreEntryContainer");
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject); // Prevent duplicate instances
+        }
+        
+        parentObject = transform.Find("HoldsAllObjects");
+        entryContainer = parentObject.Find("HighScoreEntryContainer");
         entryTemplate = entryContainer.Find("HighScoreEntryTemplate");
 
         entryTemplate.gameObject.SetActive(false);
 
         //AddHighScoreEntry(10000, "DDD");
+        //ClearHighScoreEntry();
 
-        // Check if "HighScore" exists in PlayerPrefs
+
         if (PlayerPrefs.HasKey("HighScore"))
         {
-            string jsonString = PlayerPrefs.GetString("HighScore");
-            HighScoresJson highscores = JsonUtility.FromJson<HighScoresJson>(jsonString);
-
-            if (highscores != null && highscores.highScoreEntryList != null)
+            try
             {
-                highScoreEntryList = highscores.highScoreEntryList;
+                string jsonString = PlayerPrefs.GetString("HighScore");
+                HighScoresJson highscores = JsonUtility.FromJson<HighScoresJson>(jsonString);
+                highScoreEntryList = highscores?.highScoreEntryList ?? new List<HighScoreEntry>();
+                Debug.Log($"Loaded HighScore JSON: {jsonString}");
             }
-            else
+            catch
             {
+                Debug.Log("Failed to load HighScore data. Resetting to default.");
                 highScoreEntryList = new List<HighScoreEntry>();
+                PlayerPrefs.DeleteKey("HighScore");
             }
-        }/*
+        }
         else
         {
-            // Create default high scores
-            highScoreEntryList = new List<HighScoreEntry>
-            {
-                new HighScoreEntry { score = 5000, name = "AAA" },
-                new HighScoreEntry { score = 4000, name = "BBB" },
-                new HighScoreEntry { score = 3000, name = "CCC" },
-                new HighScoreEntry { score = 2000, name = "DDD" },
-                new HighScoreEntry { score = 1000, name = "EEE" },
-            };
+            highScoreEntryList = new List<HighScoreEntry>();
+        }
 
-            // Save default high scores to PlayerPrefs
-            HighScoresJson defaultHighScores = new HighScoresJson { highScoreEntryList = highScoreEntryList };
-            string json = JsonUtility.ToJson(defaultHighScores);
-            PlayerPrefs.SetString("HighScore", json);
-            PlayerPrefs.Save();
-        }*/
-
-        // Sort the high score list
-        highScoreEntryList.Sort((entry1, entry2) => entry2.score.CompareTo(entry1.score));
-
-        highScoreEntryTransformList = new List<Transform>();
-        foreach (HighScoreEntry highScoreEntry in highScoreEntryList)
+        if (highScoreEntryList != null)
         {
-            CreateHighScoreEntryTransform(highScoreEntry, entryContainer, highScoreEntryTransformList);
+            // Sort the high score list by score in descending order
+            highScoreEntryList.Sort((entry1, entry2) => entry2.score.CompareTo(entry1.score));
+            
+            highScoreEntryTransformList = new List<Transform>();
+            foreach (HighScoreEntry highScoreEntry in highScoreEntryList)
+            {
+                CreateHighScoreEntryTransform(highScoreEntry, entryContainer, highScoreEntryTransformList);
+            }
+        }
+        else
+        {
+            Debug.LogError("HighScoreEntryList is null.");
         }
 
         Debug.Log(PlayerPrefs.GetString("HighScore"));
@@ -69,14 +78,62 @@ public class HighScore : MonoBehaviour
     {
         HighScoreEntry highScoreEntry = new HighScoreEntry {score = score, name = name};
 
-        string jsonString = PlayerPrefs.GetString("HighScore");
-        HighScoresJson highscores = JsonUtility.FromJson<HighScoresJson>(jsonString);
+        HighScoresJson highscores;
+
+        if (PlayerPrefs.HasKey("HighScore"))
+        {
+            string jsonString = PlayerPrefs.GetString("HighScore");
+            highscores = JsonUtility.FromJson<HighScoresJson>(jsonString);
+        }
+        else
+        {
+            highscores = new HighScoresJson { highScoreEntryList = new List<HighScoreEntry>() };
+        }
+
+        if(highscores.highScoreEntryList == null)
+        {
+            highscores.highScoreEntryList = new List<HighScoreEntry>();
+        }
 
         highscores.highScoreEntryList.Add(highScoreEntry);
 
         string json = JsonUtility.ToJson(highscores);
         PlayerPrefs.SetString("HighScore", json);
         PlayerPrefs.Save();
+    }
+
+    public void RefreshHighScoreDisplay()
+    {
+        // Clear existing high score entries
+        foreach (Transform child in entryContainer)
+        {
+            if (child != entryTemplate)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+
+        // Reload high scores
+        string jsonString = PlayerPrefs.GetString("HighScore", "{}");
+        HighScoresJson highscores = JsonUtility.FromJson<HighScoresJson>(jsonString);
+
+        if (highscores != null && highscores.highScoreEntryList != null)
+        {
+            highscores.highScoreEntryList.Sort((entry1, entry2) => entry2.score.CompareTo(entry1.score));
+            highScoreEntryTransformList = new List<Transform>();
+
+            foreach (HighScoreEntry highScoreEntry in highscores.highScoreEntryList)
+            {
+                CreateHighScoreEntryTransform(highScoreEntry, entryContainer, highScoreEntryTransformList);
+            }
+        }
+    }
+
+    public void ClearHighScoreEntry()
+    {
+        PlayerPrefs.DeleteKey("HighScore");
+        PlayerPrefs.Save();
+        Debug.Log("Cleared the Temp HighScore Data");
     }
 
     private void CreateHighScoreEntryTransform(HighScoreEntry highScoreEntry, Transform container, List<Transform> transformList)

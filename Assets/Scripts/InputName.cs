@@ -6,20 +6,31 @@ using TMPro;
 
 public class InputName : MonoBehaviour
 {
+    public HighScore highScore;
+
     public Button finishedName;
     public TMP_InputField inputField;
 
-    private string validCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private string validCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     private int characterLimit = 3;
     public bool donetyping = false;
     
     void Awake()
     {
         Show();
+
+        if(highScore == null)
+        {
+            highScore = HighScore.instance;
+        }
+        
+        finishedName.onClick.AddListener(OnNameSubmitted);
     }
 
     void Update()
     {
+        inputField.text = inputField.text.ToUpper();
+
         if(inputField.text.Length > 2)
         {
             donetyping = true;
@@ -58,5 +69,22 @@ public class InputName : MonoBehaviour
             return '\0';
         }
 
+    }
+
+    public string PlayerName()
+    {
+        return inputField.text;
+    }
+
+    private void OnNameSubmitted()
+    {
+        string playerName = inputField.text;
+        int playerScore = ScoreManager.instance.GetFinalScore();
+
+        if(!string.IsNullOrEmpty(playerName))
+        {
+            highScore.AddHighScoreEntry(playerScore, playerName);
+            highScore.RefreshHighScoreDisplay();
+        }
     }
 }

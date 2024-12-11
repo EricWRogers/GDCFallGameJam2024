@@ -14,6 +14,9 @@ public class ScoreManager : MonoBehaviour
     public int multiplier = 1;
     public float timer = 0;
 
+    // Score for Scoreboard
+    private int finalScore;
+
     // Enemy Tracking
     private List<GameObject> zombies = new List<GameObject>();
     private List<GameObject> werewolves = new List<GameObject>();
@@ -35,6 +38,10 @@ public class ScoreManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
+        }else
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -92,9 +99,14 @@ public class ScoreManager : MonoBehaviour
         finished = true;
         
         float timeInMinutes = timer / 60f;
-        float score = (points * multiplier) / Mathf.Max(timeInMinutes, 0.01f);
+        finalScore = Mathf.RoundToInt((points * multiplier) / Mathf.Max(timeInMinutes, 0.01f) * 10);
 
-        scoreText.text = "Score: " + (int)score;
+        scoreText.text = "Score: " + finalScore;
+    }
+
+    public int GetFinalScore()
+    {
+        return finalScore;
     }
 
     // Calcuates the dead (removed from list) amount of Enemies in the game

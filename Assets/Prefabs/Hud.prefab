@@ -899,7 +899,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1058772746291616237
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2628,7 +2628,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Retry
+  m_text: Next
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 57c5461cde75a8a42a8f3e1b310ae5e4, type: 2}
   m_sharedMaterial: {fileID: 8939634605938896452, guid: 57c5461cde75a8a42a8f3e1b310ae5e4,
@@ -3149,6 +3149,7 @@ GameObject:
   - component: {fileID: 3310014384031124641}
   - component: {fileID: 6473433117031550660}
   - component: {fileID: 1778904826683373107}
+  - component: {fileID: 1995579687732977985}
   m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
@@ -3289,6 +3290,18 @@ MonoBehaviour:
   winSection: {fileID: 858800837520754814}
   healthBar: {fileID: 3157923031674252025}
   bulletArea: {fileID: 3946403043084175826}
+--- !u!114 &1995579687732977985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5124242357309744263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecc4b89af533f8a42a3552e7858a02a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5399866915113899549
 GameObject:
   m_ObjectHideFlags: 0
@@ -4506,16 +4519,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1778904826683373107}
-        m_TargetAssemblyTypeName: WinMenu, Assembly-CSharp
-        m_MethodName: Retry
-        m_Mode: 1
+      - m_Target: {fileID: 1995579687732977985}
+        m_TargetAssemblyTypeName: SceneTransition, Assembly-CSharp
+        m_MethodName: LoadNextScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Scoreboard
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &7882401288110922931
